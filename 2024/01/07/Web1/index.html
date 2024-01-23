@@ -13,7 +13,7 @@
 
 
 
-<title>新界重构 · 再识 | Suno&#39;s Blog</title>
+<title>前端 · 盒子模型 | Suno&#39;s Blog</title>
 
 
 
@@ -196,7 +196,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">新界重构 · 再识</h1>
+            <h1 class="post-title">前端 · 盒子模型</h1>
             
                 <div class="post-meta">
                     
@@ -205,14 +205,14 @@
 
                     
                         <span class="post-time">
-                        时间: <a href="#">October 3, 2023&nbsp;&nbsp;12:50:13</a>
+                        时间: <a href="#">January 7, 2024&nbsp;&nbsp;14:48:41</a>
                         </span>
                     
                     
                         <span class="post-category">
                         类别:
                             
-                                <a href="/categories/works/">works</a>
+                                <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
                             
                         </span>
                     
@@ -221,23 +221,13 @@
         </header>
 
         <div class="post-content">
-            <h3 id="12138"><a href="#12138" class="headerlink" title="12138"></a>12138</h3><p>认识你这么多年 一直觉得你很乐观 但是今天 我发现你变了很多</p>
-<p>今天吃饭我一直在和你说话 你侧着头盯着窗外的虹灯我喊你的名字 你转头和我对视的一瞬间</p>
-<p>我感觉你好像沧桑了 又或者某些东西在你心里已经死了</p>
-<h3 id="12138-1"><a href="#12138-1" class="headerlink" title="12138"></a>12138</h3><p>“妈蛋傻小子，又晚上喝酒了。”</p>
-<p>“很难想象一个街溜子在窗口神情忧郁地喝酒呀。”</p>
-<p>“…”</p>
-<p>“逃学了是吧，傻小子，蹲你半天了，幸好是我，偷着乐去吧。”</p>
-<p>如果大家能再多点，想包一个酒吧，请你们喝酒。</p>
-<p>喂，大伙有没有什么好喝的推荐一下哇。</p>
-<p>傻小子，自己不结婚跑人家那儿去当伴娘了。</p>
-<p>带着吧，怕你出去骂街吃亏。</p>
-<p>江湖哪有那么多打打杀杀，玩的不是狗头而是生活。</p>
-<p>那脑瓜里想点事，等发生了，你该怎么办啊。</p>
-<p>如果和张九明结婚的是别人，他也会过得很幸福。但是如果我和其他人结婚，可能现在早就离掉了。</p>
-<p>我周六早晨不起床，她起床就静悄悄的。鞋都不穿就出去。</p>
-<p>有时候回家烦的很，不想理她，也不想离孩子，就躲到书房里玩电脑，她就以为我处理工作，就不让小孩子打扰我。</p>
-
+            <h2 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h2><h4 id="box-sizing-content-box"><a href="#box-sizing-content-box" class="headerlink" title="box-sizing: content-box;"></a>box-sizing: content-box;</h4><p>默认方式</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">box-sizing: content-box;</span><br><span class="line">width: <span class="number">100</span>px;</span><br><span class="line">padding: <span class="number">10</span>px;</span><br><span class="line">border: <span class="number">1</span>px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>内容区：100px 内边距：10px 边框宽度：1px<br>盒子实际宽度：100+10<em>2+1</em>2&#x3D;122px</p>
+<h4 id="box-sizing-border-box"><a href="#box-sizing-border-box" class="headerlink" title="box-sizing: border-box;"></a>box-sizing: border-box;</h4><p>自行设置</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">box-sizing: border-box;</span><br><span class="line">width: <span class="number">100</span>px;</span><br><span class="line">padding: <span class="number">10</span>px;</span><br><span class="line">border: <span class="number">1</span>px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>内容区：78px 内边距：10px 边框宽度：1px<br>盒子实际宽度：78+10<em>2+1</em>2&#x3D;100px</p>
+<h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2>
         </div>
 
         
@@ -255,7 +245,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/%E9%95%BF%E6%9B%B4/"># 长更</a>
+                        <a href="/tags/%E6%9D%82%E4%B9%B1/"># 杂乱</a>
                     
                         
                 </span>
@@ -268,10 +258,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2023/10/19/RuanKao1/">软考 · 二进制</a>
+                <a class="prev" rel="prev" href="/2024/01/23/OS1/">操作系统</a>
             
             
-            <a class="next" rel="next" href="/2023/09/24/NewTerritories2/">新界重构 · 邂逅</a>
+            <a class="next" rel="next" href="/2023/11/04/RuanKao2/">软考 · 内存</a>
             
         </section>
 
