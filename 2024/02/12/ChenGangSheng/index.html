@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Suno">
+
+
+
+
+
+<title>成龙 | Suno&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">首页</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">归档</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">首页</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; 菜单</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">归档</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">展开</a>
+        <a onclick="go_top()">顶端</a>
+        <a onclick="go_bottom()">底部</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? '展开' : '折叠';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">成龙</h1>
+            
+                <div class="post-meta">
+                    
+                        作者: <a itemprop="author" rel="author" href="/">Suno</a>
+                    
+
+                    
+                        <span class="post-time">
+                        时间: <a href="#">February 12, 2024&nbsp;&nbsp;22:39:36</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                        类别:
+                            
+                                <a href="/categories/%E4%BA%BA%E7%B1%BB%E7%BE%A4%E6%98%9F%E9%97%AA%E8%80%80%E6%97%B6/">人类群星闪耀时</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <blockquote><p>《我是成龙》是大哥从影60周年之际出版的传记。<br>我印象里，大哥示人的形象就像自己塑造的那些小人物一样，没有背景，没有光环，凭借一身孤勇一路跌跌撞撞，摸爬滚打，闯出一片天。<br>我想，所谓一个人的传奇，大概不过如此；<br>大哥是那个独一无二的奇迹。他会在很多时刻，以平凡的姿态出现在你面前，但他终究还是那颗最耀眼的星星，永远摧残炫目，持续向周围辐射着最温暖的光芒。</p>
+<footer><strong>来源：@ 《我是成龙》</strong></footer></blockquote>
+
+<h1 id="我的理想"><a href="#我的理想" class="headerlink" title="我的理想"></a>我的理想</h1><h4 id="小的时候，什么都想做，有好多的理想。"><a href="#小的时候，什么都想做，有好多的理想。" class="headerlink" title="小的时候，什么都想做，有好多的理想。"></a>小的时候，什么都想做，有好多的理想。</h4><p><img src="/../images/bk14.jpg"></p>
+<p>五六岁的时候住在使馆区，能看到很多国外的片子，觉得里面的牛仔好帅，好喜欢他们，自己就很想当牛仔。缠着爸爸妈妈买了一套牛仔的衣服，出门的时候就美滋滋地穿在身上，觉得自己很帅。</p>
+<p>到了学校之后，开始跟大家一样喜欢电影里那种风流倜傥的帅哥，希望自己有一天也能变成那样。后来又在电视上看到萧芳芳的电影《窗》，她在里面饰演一个盲女，觉得她好漂亮，就希望长大以后自己的女朋友是盲人。</p>
+<p>到了戏剧学院，刚开始跑江湖时，觉得拳击手很厉害，就希望将来可以做拳王。那时候我在学校里可以1个打7个，就只输给1个人，他叫洪金宝，因为我不能打他。</p>
+<p>再大一点之后，希望能做一名保镖，觉得很有型，很威风。后来一直在片场做武行，就想什么时候可以从小武行变成可以做高难度动作的龙虎武师。等做成了龙虎武师，我找到了人生中第一个真正的目标：成为武术指导。</p>
+<p>这个目标，是因为爸爸的一个提醒。到现在我还一直记得那个画面。</p>
+<p>那是第一次去澳大利亚找爸爸妈妈，有一天，太阳快落山的时候，我趴在厨房的台子上闷闷不乐。夕阳下，爸爸正在准备晚餐。我从早上就看到他在切肉备菜，他慢慢地转身过来，穿一件白色的衣服，站在窗边的夕阳下，问我：“儿子，我已经60岁了，但还能靠做饭谋生。你现在才不到20岁，你到60岁的时候还能打吗？”</p>
+<p>这句话给了我很深的刺激。</p>
+<p>那时候我在香港做武行，收入不稳定，朝不保夕，每天到片场又老是跟一群同行赌钱。运气还特别背，每次赌每次输。爸爸这句话点醒了我，我要找到自己未来的方向和前途。</p>
+<p>有了这个目标，再回到片场就不赌钱了，开始看人家镜头怎么摆，场面怎么调度，动作怎么控制，跟导演和演员怎么沟通，这才发现里面好多的学问。我就在旁边默默地学习。</p>
+<p>后来真的当上了武术指导，一部片的片酬一万多块，这已经非常不错了。从那以后，现场的很多东西我都用心去学，导演、摄影、灯光、美术、道具、布景……什么都去学。</p>
+<p>我成为武术指导的时候18岁，到22岁时就做了导演，这在当年算是一个小奇迹，即使在今天，依然是很年轻的。</p>
+<p>因为在片场常年的学习和训练，后来只要我在导演椅上一坐，现场没有一个人可以骗得了我，因为我每一个工种都懂，而且很清楚自己要的是什么。这场戏是过场戏还是重场戏，这里的灯光应该怎么打，这里的镜头应该是推一下还是拉一下，我都非常清楚。我可以控制整个现场，有效调度每一个部门。</p>
+<p>其实不仅是我，今天影坛很多大导演，原来都是现场的小工、灯光助理、摄影助理。像陈可辛、刘伟强、陈德森、关锦鹏，他们当年经常跟我一起混在片场，有的曾经帮我做过副导演，有的是我的资料收集员，有的是我助理，今天他们都是很有成就的导演，每一个都很棒。因为他们也一样有理想，有目标，并且付出了足够的努力。就像我做武行的时候，一天只赚几十块钱，但要拿命去拼，别人无法想象有多难。现在回看当时，觉得信念真的很重要，人就要朝着梦想的方向去努力，永不放弃。</p>
+<p>年轻的时候，在片场没有权力讲话，总是拍一些不适合自己的电影，但我从拍戏的过程中学会很多，也知道很多技巧。后来觉得很多导演其实不如我，那还不如自己做，就开始找人一起写剧本，把小时候的梦想都写出来，一一去实现。</p>
+<p>我自己弄剧本的那些故事，《A计划》《警察故事》《红番区》《我是谁》《大兵小将》《十二生肖》……这些作品让我有机会去体验本来没机会体验的生活。电影里的人生总是那么多姿多彩，我也知道自己是多么幸运，可以在这个行业做到今天。</p>
+<p>多年前，我被邀请去参加史泰龙电影的首映礼，跟着他第一次走美国的红地毯。那时候没什么人认识我，在红毯上我就尽量走得快一点，不要挡住后面的人，也不要妨碍大明星接受访问。看着周围的热烈气氛、热情的影迷、不断亮起的闪光灯，我在心里跟自己说，有一天我一定要在这里走自己电影的红地毯，而且要把自己的手印、脚印也留在好莱坞的星光大道上。<br>几年以后，这两个愿望全都实现了。变成别人来为我的红毯捧场，我是那场活动的主人。柯达剧院外面星光大道属于我的那颗星星，也被摆在引人注目的位置，全世界很多影迷都去那里拍照。</p>
+<p>2013年，《十二生肖》连续拿了两个动作指导的奖，我在台上说，这个奖要跟全世界的特技人分享。他们每天在幕后拼命，做的是一些不为人知的事情，有时还会被人欺负被人骂。我算是非常幸运，可以从幕后做到幕前，让大家在银幕上看到我。受伤了，大家可以通过新闻知道。很多特技人员断手断腿，甚至死掉都没人知道，也没有人去关心。</p>
+<p>我很希望全世界的电影观众能了解他们的贡献，多给他们一些掌声，希望有朝一日可以为我们中国的动作特技人成立协会。<br>我还希望能办一个只有动作电影参赛的颁奖典礼，而不仅仅是文艺片去拿那些奖。我要设置最佳动作片、最佳动作导演、最佳动作女明星、最佳动作男明星、最佳替身演员……希望那些在幕后拼命的人也有出头的一天。<br>很开心的是，这几年，两个愿望全都实现了。</p>
+<p>拍过动作戏的人都知道，要完成一部动作电影有多不容易，为了一个好看的镜头，我们十几遍几十遍地做着危险的动作，很多人因此流血受伤，但遗憾的是，动作电影在全世界的很多电影节里总是“陪跑”的状态，最多就是拿一个“最佳动作指导”奖。当然，艺术作品原本就没有一定的评选标准，但也正因为如此，我认为动作电影可以作为一个专门的艺术种类，进行单独的评价。</p>
+<p>“成龙国际动作电影周”是我为了实现这个梦想所做的尝试，到2021年已经连续举办了6届。很感谢所有来参与竞赛的影片和全世界的同行，以及来给动作电影人颁奖的导演、明星朋友们。2018年的动作电影周，评委会把“终身成就奖”颁给了我的大师兄洪金宝，我们俩一起站在台上的时候，几十年的岁月闪过眼前，感慨万千。我想起他曾经在一个采访里说，“以前，我、成龙、元彪三个人，拿着一个巨大的音乐盒，开车去西班牙的山顶，躺在草地上，听着音乐，觉得特别好——回去就感冒了，风吹的！我们就是这样，从小的情谊，我们的故事，写出来拍个电影，一定很有意思……”</p>
+<p>多年前，我在香港组织大家成立了演艺人协会，之后编剧、剪辑、灯光、摄影陆续都有了自己的协会，后来我还组织大家成立了香港电影工作总会。这些年里，当协会遇到困难支撑不下去的时候，我会掏钱给他们，让他们坚持下去。</p>
+<p>为我们自己的动作特技人成立协会，也是我几十年来一直想做的事。我们很多人都是从底层做起，知道最基层的武行有多辛苦，很多人都是拿命在拼，但是得到的报酬很少，平时的工作也很难保证安全，有时受了伤也得不到妥善的处理。毕竟不是所有人都有机会从武行成为动作指导，成为导演，甚至明星，我很希望去替他们争取一些基本的保障和权益。这个愿望到2019年也终于实现了，中国动作特技人工作委员会正式成立。</p>
+<p>疫情让“动作电影周”一度停摆，但我一定会坚持把它办下去。动作特技人工作委员会的相关工作，也将是我未来工作中的重要部分。这是我到了这个人生阶段，有能力做，应该做，也必须做的。</p>
+<p>一晃入行竟然60年了，此刻想想对未来的期待，我希望自己不要有太多病痛，还可以健健康康地拍戏，也还可以为世界再做点事情。</p>
+<p>到今天，我每天看着镜子，都会对自己说，你真幸运，可以走到今天。如果这个世界上有神，我想谢谢他，也要把我的幸运送给别人。这就是我现在的理想。</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>标签:</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E8%BD%AC%E8%BD%BD/"># 转载</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">返回</a>
+                <span>· </span>
+                <a href="/">首页</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2024/01/23/Web2/">前端开发 · 元素</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Suno | 2023 </span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
