@@ -244,9 +244,6 @@
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~a = 0;</span><br><span class="line">~b = -2;</span><br></pre></td></tr></table></figure>
 
-<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h4 id="字符串的结束标志是一个-0的转义字符。在计算字符串长度的时候-0是结束标志，不算作字符串内容，但会被计算为字节数。"><a href="#字符串的结束标志是一个-0的转义字符。在计算字符串长度的时候-0是结束标志，不算作字符串内容，但会被计算为字节数。" class="headerlink" title="字符串的结束标志是一个\0的转义字符。在计算字符串长度的时候\0是结束标志，不算作字符串内容，但会被计算为字节数。"></a>字符串的结束标志是一个\0的转义字符。在计算字符串长度的时候\0是结束标志，不算作字符串内容，但会被计算为字节数。</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> arr1[] = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line"><span class="type">char</span> arr2[] = &#123; <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;\0&#x27;</span>&#125;;</span><br><span class="line"><span class="type">char</span> arr3[] = &#123;<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>&#125;;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">%s arr1 = abc;</span><br><span class="line">%s arr2 = abc;</span><br><span class="line">%s arr3 = abc烫烫烫烫蘟bc;</span><br><span class="line">strlen(arr1) = 3;</span><br><span class="line">strlen(arr2) = 3;</span><br><span class="line">strlen(arr3) = 15;</span><br><span class="line">sizeof(arr1) = 4;</span><br><span class="line">sizeof(arr2) = 4;</span><br><span class="line">sizeof(arr3) = 3;</span><br></pre></td></tr></table></figure>
         </div>
 
         
@@ -280,7 +277,7 @@
                 <a class="prev" rel="prev" href="/2023/11/04/RuanKao2/">软考 · 内存</a>
             
             
-            <a class="next" rel="next" href="/2023/10/03/NewTerritories3/">新界重构 · 再识</a>
+            <a class="next" rel="next" href="/2023/09/06/LeiJun/">雷军</a>
             
         </section>
 
