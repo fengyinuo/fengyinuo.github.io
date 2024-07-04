@@ -13,7 +13,7 @@
 
 
 
-<title>C语言 | Suno&#39;s Blog</title>
+<title>数据 | Suno&#39;s Blog</title>
 
 
 
@@ -196,7 +196,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">C语言</h1>
+            <h1 class="post-title">数据</h1>
             
                 <div class="post-meta">
                     
@@ -209,6 +209,13 @@
                         </span>
                     
                     
+                        <span class="post-category">
+                        类别:
+                            
+                                <a href="/categories/C/">C</a>
+                            
+                        </span>
+                    
                 </div>
             
         </header>
@@ -220,13 +227,15 @@
 <footer><strong>参考文献：Stephen Prata《C Primer Plus》 学习网站：@</strong><cite><a target="_blank" rel="noopener" href="https://c.biancheng.net/index.html">C 语 言 中 文 网</a></cite></footer></blockquote>
 
 <hr>
-<h3 id="sizeof：返回值为类型或者变量所占空间的大小，单位是字节。"><a href="#sizeof：返回值为类型或者变量所占空间的大小，单位是字节。" class="headerlink" title="sizeof：返回值为类型或者变量所占空间的大小，单位是字节。"></a>sizeof：返回值为类型或者变量所占空间的大小，单位是字节。</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sizeof(char): 1</span><br><span class="line">sizeof(int): 4</span><br><span class="line">sizeof(short): 2</span><br><span class="line">sizeof(long): 4</span><br><span class="line">sizeof(long long): 8</span><br><span class="line">sizeof(float): 4</span><br><span class="line">sizeof(double): 8</span><br></pre></td></tr></table></figure>
+<h3 id="sizeof运算符：返回值为类型或者变量所占空间的大小，单位是字节。"><a href="#sizeof运算符：返回值为类型或者变量所占空间的大小，单位是字节。" class="headerlink" title="sizeof运算符：返回值为类型或者变量所占空间的大小，单位是字节。"></a>sizeof运算符：返回值为类型或者变量所占空间的大小，单位是字节。</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sizeof(char): 1</span><br><span class="line">sizeof(int): 4</span><br><span class="line">sizeof(short): 2</span><br><span class="line">sizeof(long): 4</span><br><span class="line">sizeof(long long): 8</span><br><span class="line">sizeof(float): 4</span><br><span class="line">sizeof(double): 8</span><br></pre></td></tr></table></figure>
 
-<h3 id="字符串：字符串的结束标志是一个-0的转义字符。在计算字符串长度的时候-0是结束标志，不算作字符串内容，但会被计算为字节数。"><a href="#字符串：字符串的结束标志是一个-0的转义字符。在计算字符串长度的时候-0是结束标志，不算作字符串内容，但会被计算为字节数。" class="headerlink" title="字符串：字符串的结束标志是一个\0的转义字符。在计算字符串长度的时候\0是结束标志，不算作字符串内容，但会被计算为字节数。"></a>字符串：字符串的结束标志是一个\0的转义字符。在计算字符串长度的时候\0是结束标志，不算作字符串内容，但会被计算为字节数。</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> arr1[] = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line"><span class="type">char</span> arr2[] = &#123; <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;\0&#x27;</span>&#125;;</span><br><span class="line"><span class="type">char</span> arr3[] = &#123;<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="strlen函数-string-length-：返回字符串中的字符长度。"><a href="#strlen函数-string-length-：返回字符串中的字符长度。" class="headerlink" title="strlen函数(string length)：返回字符串中的字符长度。"></a>strlen函数(string length)：返回字符串中的字符长度。</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">strlen(&quot;hello&quot;) : 5</span><br><span class="line"></span><br><span class="line">char str[] = &quot;world&quot;;</span><br><span class="line">strlen(str) : 5</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">%s arr1 = abc;</span><br><span class="line">%s arr2 = abc;</span><br><span class="line">%s arr3 = abc烫烫烫烫蘟bc;</span><br><span class="line">strlen(arr1) = 3;</span><br><span class="line">strlen(arr2) = 3;</span><br><span class="line">strlen(arr3) = 15;</span><br><span class="line">sizeof(arr1) = 4;</span><br><span class="line">sizeof(arr2) = 4;</span><br><span class="line">sizeof(arr3) = 3;</span><br></pre></td></tr></table></figure>
+<h3 id="字符串：字符串的结束标志是一个-0的转义字符。在计算字符串长度的时候-0是结束标志，不算作字符串内容。"><a href="#字符串：字符串的结束标志是一个-0的转义字符。在计算字符串长度的时候-0是结束标志，不算作字符串内容。" class="headerlink" title="字符串：字符串的结束标志是一个\0的转义字符。在计算字符串长度的时候\0是结束标志，不算作字符串内容。"></a>字符串：字符串的结束标志是一个\0的转义字符。在计算字符串长度的时候\0是结束标志，不算作字符串内容。</h3><h4 id="不会作为字符串内容打印出来，不会被计算为字符数，但会占用储存空间"><a href="#不会作为字符串内容打印出来，不会被计算为字符数，但会占用储存空间" class="headerlink" title="不会作为字符串内容打印出来，不会被计算为字符数，但会占用储存空间"></a>不会作为字符串内容打印出来，不会被计算为字符数，但会占用储存空间</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> arr1[] = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line"><span class="type">char</span> arr2[] = &#123; <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;\0&#x27;</span>&#125;;</span><br><span class="line"><span class="type">char</span> arr3[] = &#123;<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>&#125;;</span><br></pre></td></tr></table></figure>
 
-<h3 id="const修饰的变量：常变量-具有常属性（不能被改变的属性），但本质上仍为变量。"><a href="#const修饰的变量：常变量-具有常属性（不能被改变的属性），但本质上仍为变量。" class="headerlink" title="const修饰的变量：常变量 - 具有常属性（不能被改变的属性），但本质上仍为变量。"></a>const修饰的变量：常变量 - 具有常属性（不能被改变的属性），但本质上仍为变量。</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const int n = 10;</span><br><span class="line">int arr[n] = &#123;0&#125;;//这里的n仍为变量是不行的。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">printf(&quot;%s&quot;, arr1) : abc</span><br><span class="line">printf(&quot;%s&quot;, arr2) : abc</span><br><span class="line">printf(&quot;%s&quot;, arr3) : abc烫烫烫烫蘟bc</span><br><span class="line">strlen(arr1) : 3</span><br><span class="line">strlen(arr2) : 3</span><br><span class="line">strlen(arr3) : 15</span><br><span class="line">sizeof(arr1) : 4</span><br><span class="line">sizeof(arr2) : 4</span><br><span class="line">sizeof(arr3) : 3</span><br></pre></td></tr></table></figure>
+
+<h3 id="const限定符：用于限定一个变量为只读，即常变量-具有常属性（不能被改变的属性），但本质上仍为变量。"><a href="#const限定符：用于限定一个变量为只读，即常变量-具有常属性（不能被改变的属性），但本质上仍为变量。" class="headerlink" title="const限定符：用于限定一个变量为只读，即常变量 - 具有常属性（不能被改变的属性），但本质上仍为变量。"></a>const限定符：用于限定一个变量为只读，即常变量 - 具有常属性（不能被改变的属性），但本质上仍为变量。</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const int n = 10;</span><br><span class="line">int arr[n] = &#123;0&#125;;//这里的n仍为变量是不行的。</span><br></pre></td></tr></table></figure>
         </div>
 
         

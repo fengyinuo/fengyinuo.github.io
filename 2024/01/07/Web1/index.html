@@ -13,7 +13,7 @@
 
 
 
-<title>语法标签 | Suno&#39;s Blog</title>
+<title>盒子模型 | Suno&#39;s Blog</title>
 
 
 
@@ -196,7 +196,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">语法标签</h1>
+            <h1 class="post-title">盒子模型</h1>
             
                 <div class="post-meta">
                     
@@ -212,7 +212,7 @@
                         <span class="post-category">
                         类别:
                             
-                                <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+                                <a href="/categories/Web/">Web</a>
                             
                         </span>
                     
@@ -221,49 +221,34 @@
         </header>
 
         <div class="post-content">
-            <blockquote><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>本系列算是学习笔记，我也是在边学边整理。</p>
+            <blockquote><p>本系列算是学习笔记，我也是在边学边整理。</p>
 <p>如果有不对的地方，欢迎大佬指正，也欢迎友好讨论。</p>
-<p>有关前端开发，</p>
-<p>我愿称之为美工设计，前端的语言是一种描述性语言，注重语义化，</p>
-<p>其与c&#x2F;c++、java、php等语言相比语法就简单多了。</p>
-<p>说实话门槛是比较低的，但还是需要保持不骄不躁的学习心态，潜心领悟。</p>
-<footer><strong>参考文献：莫振杰《Web前端开发精品课》</strong></footer></blockquote>
+<footer><strong>来源：网络自学</strong></footer></blockquote>
 
 <hr>
-<h1 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h1><h2 id="基础标签"><a href="#基础标签" class="headerlink" title="基础标签"></a>基础标签</h2><p>&lt; meta&#x2F;&gt;标签一般用于定义页面的特殊信息，例如页面关键字、页面描述等。<br>这些信息不是提供给人看的，而是提供给搜索引擎蜘蛛（如百度蜘蛛、谷歌蜘蛛）看的。<br>&lt; meta&#x2F;&gt;标签有两个重要的属性：name和http-equiv。</p>
-<h3 id="name属性"><a href="#name属性" class="headerlink" title="name属性"></a>name属性</h3><table>
+<h2 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h2><h4 id="box-sizing-content-box"><a href="#box-sizing-content-box" class="headerlink" title="box-sizing: content-box;"></a>box-sizing: content-box;</h4><p>默认方式</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">box-sizing: content-box;</span><br><span class="line">width: <span class="number">100</span>px;</span><br><span class="line">padding: <span class="number">10</span>px;</span><br><span class="line">border: <span class="number">1</span>px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>内容区：100px 内边距：10px 边框宽度：1px<br>盒子实际宽度：100+10<em>2+1</em>2&#x3D;122px</p>
+<h4 id="box-sizing-border-box"><a href="#box-sizing-border-box" class="headerlink" title="box-sizing: border-box;"></a>box-sizing: border-box;</h4><p>自行设置</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">box-sizing: border-box;</span><br><span class="line">width: <span class="number">100</span>px;</span><br><span class="line">padding: <span class="number">10</span>px;</span><br><span class="line">border: <span class="number">1</span>px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>内容区：78px 内边距：10px 边框宽度：1px<br>盒子实际宽度：78+10<em>2+1</em>2&#x3D;100px</p>
+<h2 id="元素"><a href="#元素" class="headerlink" title="元素"></a>元素</h2><table>
 <thead>
 <tr>
-<th>属性值</th>
-<th>说明</th>
+<th>块级元素</th>
+<th>行内元素</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>keword</td>
-<td>网页关键字</td>
+<td>Hello World</td>
+<td>Hello World</td>
 </tr>
 <tr>
-<td>description</td>
-<td>网页描述</td>
-</tr>
-<tr>
-<td>author</td>
-<td>网页作者</td>
-</tr>
-<tr>
-<td>copyright</td>
-<td>版权信息</td>
+<td>Hello World</td>
+<td>Hello World</td>
 </tr>
 </tbody></table>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">   &lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;!--网页关键字--&gt;</span><br><span class="line">    &lt;meta name=<span class="string">&quot;keywords&quot;</span> content=<span class="string">&quot;suno`s blog&quot;</span>/&gt;</span><br><span class="line">    &lt;!--网页描述--&gt;</span><br><span class="line">    &lt;meta name=<span class="string">&quot;description&quot;</span> content=<span class="string">&quot;苏诺的博客&quot;</span>/&gt;</span><br><span class="line">    &lt;!--本页作者--&gt;</span><br><span class="line">    &lt;meta name=<span class="string">&quot;author&quot;</span> content=<span class="string">&quot;suno&quot;</span>&gt;</span><br><span class="line">    &lt;!--版权声明--&gt;</span><br><span class="line">    &lt;meta name=<span class="string">&quot;copyright&quot;</span> content=<span class="string">&quot;本站版权所有，禁止转载。否则必将追究法律责任。&quot;</span>/&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="http-equiv属性"><a href="#http-equiv属性" class="headerlink" title="http-equiv属性"></a>http-equiv属性</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=<span class="string">&quot;refresh&quot;</span> content=<span class="string">&quot;6;url=http://www.baidu.com&quot;</span>/&gt;</span><br></pre></td></tr></table></figure>
-<p>这段代码表示当前页面在6秒后会自动跳转到 <a target="_blank" rel="noopener" href="http://www.baidu.com/">http://www.baidu.com</a> 这个页面。</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=<span class="string">&quot;Content-Type&quot;</span> content=<span class="string">&quot;text/html; charset=utf-8&quot;</span>/&gt;</span><br><span class="line">简写:&lt;meta charset=<span class="string">&quot;utf-8&quot;</span>/&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="文本标签"><a href="#文本标签" class="headerlink" title="文本标签"></a>文本标签</h2><p>标题标签 h1、h2、h3、h4、h5、h6<br>段落标签 p<br>换行标签 br<br>文本标签 粗体标签：strong、b斜体标签：i、em、cite上标标签：sup下标标签：sub中划线标签：s下划线标签：u大字号标签：big小字号标签：small<br>水平线标签 我们可以使用hr标签来实现一条水平线。hr，是“horizon（水平线）”的缩写。<br>特殊符号 空格的代码是 &amp; nbsp;。 </p>
-<p>使用p标签会导致段落与段落之间有一定的间隙，而使用br标签却不会。<br>br标签是用来给文字“换行”的，而p标签是用来给文字“分段”的。<br>如果你的内容是两段文字，则不需要使用br标签换行那么麻烦，而是直接用两个p标签就可以了。</p>
-
+<h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2>
         </div>
 
         
@@ -281,7 +266,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/HTML/"># HTML</a>
+                        <a href="/tags/css/"># css</a>
                     
                         
                 </span>
@@ -294,10 +279,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2024/01/23/Web2/">盒子模型</a>
+                <a class="prev" rel="prev" href="/2024/02/12/ChenGangSheng/">成龙</a>
             
             
-            <a class="next" rel="next" href="/2023/11/04/RuanKao2/">软考 · 内存</a>
+            <a class="next" rel="next" href="/2023/09/06/LeiJun/">雷军</a>
             
         </section>
 
