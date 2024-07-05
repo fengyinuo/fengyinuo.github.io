@@ -13,7 +13,7 @@
 
 
 
-<title>C2 | Suno&#39;s Blog</title>
+<title>内存 | Suno&#39;s Blog</title>
 
 
 
@@ -127,11 +127,76 @@
                 <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">展开</a>
+        <a onclick="go_top()">顶端</a>
+        <a onclick="go_bottom()">底部</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? '展开' : '折叠';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">C2</h1>
+            <h1 class="post-title">内存</h1>
             
                 <div class="post-meta">
                     
@@ -144,12 +209,29 @@
                         </span>
                     
                     
+                        <span class="post-category">
+                        类别:
+                            
+                                <a href="/categories/C/">C</a>
+                            
+                        </span>
+                    
                 </div>
             
         </header>
 
         <div class="post-content">
-            
+            <h4 id="如要更好的理解指针和数组，就要理解“内存”"><a href="#如要更好的理解指针和数组，就要理解“内存”" class="headerlink" title="如要更好的理解指针和数组，就要理解“内存”"></a>如要更好的理解指针和数组，就要理解“内存”</h4><p>内存是电脑上特别重要的存储器，计算机中所有程序的运行都是在内存中进行的。</p>
+<p>所以为了有效的使用内存，就把内存划分成一个个小的内存单元，每个内存单元的大小都是<strong>一字节</strong>。</p>
+<p>为了能够有效的访问到内存的每个单元，就给内存单元进行了编号，这些编号就被称为该<strong>内存单元的地址</strong>。</p>
+<h3 id="数据的存取"><a href="#数据的存取" class="headerlink" title="数据的存取"></a>数据的存取</h3><p>CPU &lt; —— &gt; *<strong>寄存器</strong> &lt; —— &gt; 缓存 &lt; —— &gt; <em><strong>内存</strong></em> &lt; —— &gt; <em><strong>硬盘</strong></em></p>
+<h3 id="内存单元的地址编码"><a href="#内存单元的地址编码" class="headerlink" title="内存单元的地址编码"></a>内存单元的地址编码</h3><p>32位计算机指的是该计算机系统中的数据处理单元（如CPU寄存器、内存地址线等）能够处理的数据宽度为32位，即它可以存储或运算的最大整数是4字节（32比特）。</p>
+<p><strong>即对应了寄存器每次的寻址能力为32位。</strong></p>
+<p>32位对应了32根地址线，即真实存在的物理线。当通电之后，电信号转换为数字信息，便存储了1和0组成的二进制序列。</p>
+<p><strong>即地址编码为32位二进制数，同时2的32次方个地址在内存中对应有2的32次方个内存单元。</strong></p>
+<p>int a &#x3D; 1; 整型变量a在内存中要分配4个字节的空间，每个内存单元的大小是1个字节，即需要4个内存单元存放a。</p>
+<p><strong>当取地址a时拿到的是第一个字节（内存单元）的地址</strong></p>
+
         </div>
 
         
@@ -166,6 +248,10 @@
                 <span>标签:</span>
                 <span class="tag">
                     
+                    
+                        <a href="/tags/c/"># c</a>
+                    
+                        
                 </span>
             </div>
             <div>
@@ -176,7 +262,7 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2024/07/03/C3/">C3</a>
+                <a class="prev" rel="prev" href="/2024/07/03/C3/">指针</a>
             
             
             <a class="next" rel="next" href="/2024/07/03/C1/">数据</a>
