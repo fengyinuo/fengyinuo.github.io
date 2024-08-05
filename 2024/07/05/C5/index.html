@@ -13,7 +13,7 @@
 
 
 
-<title>结构体 | Suno&#39;s Blog</title>
+<title>数组和指针 | Suno&#39;s Blog</title>
 
 
 
@@ -131,7 +131,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">结构体</h1>
+            <h1 class="post-title">数组和指针</h1>
             
                 <div class="post-meta">
                     
@@ -149,7 +149,12 @@
         </header>
 
         <div class="post-content">
-            <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> line &#123;</span><br><span class="line">    <span class="keyword">struct</span> line *prior;</span><br><span class="line">    <span class="type">int</span> data;</span><br><span class="line">    <span class="keyword">struct</span> line *next;</span><br><span class="line">&#125; line;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> main()&#123;</span><br><span class="line">    line s = &#123;<span class="literal">NULL</span>, <span class="number">1</span>, <span class="literal">NULL</span>&#125;;</span><br><span class="line">    printf(<span class="string">&quot;%d&quot;</span>, s.data);</span><br><span class="line"></span><br><span class="line">    line* ps = &amp;s;</span><br><span class="line">    printf(<span class="string">&quot;%d&quot;</span>, (*ps).data);</span><br><span class="line"></span><br><span class="line">    printf(<span class="string">&quot;%d&quot;</span>, ps-&gt;data);    </span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <p>我们的系统中，地址是按字节编址。在C中，指针加1指的是增加一个存储单元。对数组而言，这意味着加1后的地址是下一个元素的地址，而不是下一个字节的地址。<br>这是为什么必须声明指针所指向对象类型的原因之一。只知道地址不够，因为计算机要知道存储对象需要多少字节。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&amp;arr[2] == arr+2 //相同的地址</span><br><span class="line">arr[2] == *(arr+2) //相同的值</span><br></pre></td></tr></table></figure>
+<p>以上关系表明了数组和指针的关系十分密切，可以使用指针标识数组的元素和获得元素的值。从本质上看，同一个对象有两种表示法。<br>实际上，C语言标准在描述数组表示法时确实借助了指针。也就是说，定义arr[n]的意思是*(arr+n)。<br>可以认为*(arr+n)的意思是“到内存的arr位置，然后移动n个单元，检索存储在那里的值”。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int sun(int *arr, int n);</span><br><span class="line">int sun(int *, int);</span><br><span class="line">int sun(int arr[], int n);</span><br><span class="line">int sun(int [], int);</span><br></pre></td></tr></table></figure>
+<p>由于函数原型可以省略参数名，所以以上4种原型都是等价的。</p>
+
         </div>
 
         
@@ -180,8 +185,10 @@
         </section>
         <section class="post-nav">
             
+                <a class="prev" rel="prev" href="/2024/08/05/C6/">结构体</a>
             
-            <a class="next" rel="next" href="/2024/07/03/C4/">数组</a>
+            
+            <a class="next" rel="next" href="/2024/07/03/C4/">指针</a>
             
         </section>
 
