@@ -13,7 +13,7 @@
 
 
 
-<title>结构体 | Suno&#39;s Blog</title>
+<title>二进制 | Suno&#39;s Blog</title>
 
 
 
@@ -127,11 +127,76 @@
                 <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">展开</a>
+        <a onclick="go_top()">顶端</a>
+        <a onclick="go_bottom()">底部</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? '展开' : '折叠';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">结构体</h1>
+            <h1 class="post-title">二进制</h1>
             
                 <div class="post-meta">
                     
@@ -140,16 +205,27 @@
 
                     
                         <span class="post-time">
-                        时间: <a href="#">August 5, 2024&nbsp;&nbsp;17:23:02</a>
+                        时间: <a href="#">August 7, 2024&nbsp;&nbsp;9:08:46</a>
                         </span>
                     
+                    
+                        <span class="post-category">
+                        类别:
+                            
+                                <a href="/categories/C/">C</a>
+                            
+                        </span>
                     
                 </div>
             
         </header>
 
         <div class="post-content">
-            <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> line &#123;</span><br><span class="line">    <span class="keyword">struct</span> line *prior;</span><br><span class="line">    <span class="type">int</span> data;</span><br><span class="line">    <span class="keyword">struct</span> line *next;</span><br><span class="line">&#125; line;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> main()</span><br><span class="line">&#123;</span><br><span class="line">    line s = &#123;<span class="literal">NULL</span>, <span class="number">1</span>, <span class="literal">NULL</span>&#125;;</span><br><span class="line">    printf(<span class="string">&quot;%d&quot;</span>, s.data);</span><br><span class="line">    line* ps = &amp;s;</span><br><span class="line">    printf(<span class="string">&quot;%d&quot;</span>, (*ps).data);</span><br><span class="line">    printf(<span class="string">&quot;%d&quot;</span>, ps-&gt;data);    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0000</span><br><span class="line">8421（位权）</span><br></pre></td></tr></table></figure>
+
+<h4 id="负数符号位是1，正数符号位是0"><a href="#负数符号位是1，正数符号位是0" class="headerlink" title="负数符号位是1，正数符号位是0"></a>负数符号位是1，正数符号位是0</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int a = 1;</span><br><span class="line">0（符号位）000 0000 0000 0000 0000 0000 0000 0001 — 原码， 反码，补码（正整数原，反，补码相同）</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int a = -1;</span><br><span class="line">1（符号位）000 0000 0000 0000 0000 0000 0000 0001 — 原码</span><br><span class="line">1（符号位）111 1111 1111 1111 1111 1111 1111 1110 — 反码（符号位不变，原码数值位按位取反）</span><br><span class="line">1（符号位）111 1111 1111 1111 1111 1111 1111 1111 — 补码（符号位不变，原码数值位按位取反，末位加1）</span><br></pre></td></tr></table></figure>
         </div>
 
         
@@ -180,10 +256,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2024/08/07/C7/">二进制</a>
             
-            
-            <a class="next" rel="next" href="/2024/07/05/C5/">数组和指针</a>
+            <a class="next" rel="next" href="/2024/08/05/C6/">结构体</a>
             
         </section>
 
