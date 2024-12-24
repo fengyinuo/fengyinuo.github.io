@@ -238,11 +238,9 @@
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&amp;arr = 00DDFD18</span><br><span class="line">arr = 00DDFD18</span><br><span class="line">&amp;arr[0] = 00DDFD18</span><br><span class="line">&amp;arr + 1 = 00DDFD2C</span><br><span class="line">arr + 1 = 00DDFD1C</span><br><span class="line">&amp;arr[0] + 1 = 00DDFD1C</span><br></pre></td></tr></table></figure>
 
-<h4 id="arr-arr-0"><a href="#arr-arr-0" class="headerlink" title="arr &#x3D;&#x3D; &amp;arr[0]"></a>arr &#x3D;&#x3D; &amp;arr[0]</h4><p>arr和&amp;arr[0]都表示数组首元素的内存地址，两者是等价的。&amp;arr表示整个数组的地址。</p>
-<p>在C语言中，arr[2]确实等价于2[arr]。这看起来有些奇怪，但这是因为C语言中的数组下标操作符 [] 是通过指针运算实现的。</p>
-<p>数组下标操作符 [] 的定义如下：</p>
-<p>a[b] 等价于 *(a + b)<br>这意味着：</p>
-<p>arr[2] 等价于 *(arr + 2)<br>2[arr] 也等价于 *(2 + arr)，这在数学上等价于 *(arr + 2)<br>所以，arr[2] 和 2[arr] 是等价的。</p>
+<h4 id="arr-arr-0-，arr和-arr-0-都表示数组首元素的内存地址，两者是等价的，-arr表示整个数组的地址。"><a href="#arr-arr-0-，arr和-arr-0-都表示数组首元素的内存地址，两者是等价的，-arr表示整个数组的地址。" class="headerlink" title="arr &#x3D;&#x3D; &amp;arr[0]，arr和&amp;arr[0]都表示数组首元素的内存地址，两者是等价的，&amp;arr表示整个数组的地址。"></a>arr &#x3D;&#x3D; &amp;arr[0]，arr和&amp;arr[0]都表示数组首元素的内存地址，两者是等价的，&amp;arr表示整个数组的地址。</h4><p>数组下标操作符 [] 的定义如下：</p>
+<p>a[b] 等价于 *(a + b)</p>
+<p>这意味着： arr[2] 等价于 *(arr + 2)。<br>2[arr] 也等价于 *(2 + arr)，这在数学上等价于 *(arr + 2), 所以，arr[2] 和 2[arr] 是等价的。<br>在C语言中，arr[2]确实等价于2[arr]。这看起来有些奇怪，但这是因为C语言中的数组下标操作符 [] 是通过指针运算实现的。</p>
 
         </div>
 
