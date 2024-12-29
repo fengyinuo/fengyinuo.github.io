@@ -13,7 +13,7 @@
 
 
 
-<title>数组和指针 | Suno&#39;s Blog</title>
+<title>指针 | Suno&#39;s Blog</title>
 
 
 
@@ -131,7 +131,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">数组和指针</h1>
+            <h1 class="post-title">指针</h1>
             
                 <div class="post-meta">
                     
@@ -149,11 +149,11 @@
         </header>
 
         <div class="post-content">
-            <p>我们的系统中，地址是按字节编址。在C中，指针加1指的是增加一个存储单元。对数组而言，这意味着加1后的地址是下一个元素的地址，而不是下一个字节的地址。<br>这是为什么必须声明指针所指向对象类型的原因之一。只知道地址不够，因为计算机要知道存储对象需要多少字节。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&amp;arr[2] == arr+2 //相同的地址</span><br><span class="line">arr[2] == *(arr+2) //相同的值</span><br></pre></td></tr></table></figure>
-<p>以上关系表明了数组和指针的关系十分密切，可以使用指针标识数组的元素和获得元素的值。从本质上看，同一个对象有两种表示法。<br>实际上，C语言标准在描述数组表示法时确实借助了指针。也就是说，定义arr[n]的意思是*(arr+n)。<br>可以认为*(arr+n)的意思是“到内存的arr位置，然后移动n个单元，检索存储在那里的值”。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int sun(int *arr, int n);</span><br><span class="line">int sun(int *, int);</span><br><span class="line">int sun(int arr[], int n);</span><br><span class="line">int sun(int [], int);</span><br></pre></td></tr></table></figure>
-<p>由于函数原型可以省略参数名，所以以上4种原型都是等价的。</p>
+            <p>int (*p)[5]                 数组指针</p>
+<p>int *p[5]                   指针数组</p>
+<p>void (*p) (int, int)        函数指针</p>
+<p>void (*p[5]) (int, int)     函数指针数组</p>
+<p>void (*(*p)[5]) (int, int)  函数指针数组指针</p>
 
         </div>
 
@@ -185,10 +185,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2024/08/05/C6/">结构体</a>
+                <a class="prev" rel="prev" href="/2024/08/05/C6/">数组和指针</a>
             
             
-            <a class="next" rel="next" href="/2024/07/03/C4/">指针</a>
+            <a class="next" rel="next" href="/2024/07/03/C4/">数组</a>
             
         </section>
 
