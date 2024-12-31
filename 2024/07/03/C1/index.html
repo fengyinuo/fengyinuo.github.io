@@ -292,6 +292,11 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4294967293</span><br></pre></td></tr></table></figure>
 
 <p>-3 在内存中存储时，使用的是补码表示法，即转换为 1111 1111 1111 1111 1111 1111 1111 1101存储。<br>当用%u解释时，直接使用二进制数据转换为十进制表示 &#x3D;&gt; 4294967293。</p>
+<h3 id="常规算术转换"><a href="#常规算术转换" class="headerlink" title="常规算术转换"></a>常规算术转换</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> a = <span class="number">-1</span>;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">int</span> b = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (a &lt; b) &#123;</span><br><span class="line">        printf(<span class="string">&quot;a &lt; b&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        printf(<span class="string">&quot;a &gt; b&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a &gt; b</span><br></pre></td></tr></table></figure>
+
+<p>在 C 语言中，当进行比较运算（如 &lt;）时，如果操作数的类型不同，其中一个是无符号类型，另一个是有符号类型，会将有符号类型转换为无符号类型。<br>这里，a 的值是 -1，但在与 b（无符号整型）比较时，a 会被转换为无符号整型，即4294967295。</p>
 
         </div>
 
