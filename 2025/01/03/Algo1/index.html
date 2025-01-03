@@ -13,7 +13,7 @@
 
 
 
-<title>指针 | Suno&#39;s Blog</title>
+<title>Algo1 | Suno&#39;s Blog</title>
 
 
 
@@ -196,7 +196,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">指针</h1>
+            <h1 class="post-title">Algo1</h1>
             
                 <div class="post-meta">
                     
@@ -205,14 +205,14 @@
 
                     
                         <span class="post-time">
-                        时间: <a href="#">July 5, 2024&nbsp;&nbsp;15:10:04</a>
+                        时间: <a href="#">January 3, 2025&nbsp;&nbsp;20:48:26</a>
                         </span>
                     
                     
                         <span class="post-category">
                         类别:
                             
-                                <a href="/categories/C/">C</a>
+                                <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
                             
                         </span>
                     
@@ -221,16 +221,7 @@
         </header>
 
         <div class="post-content">
-            <p>int (*p)[5]                 数组指针</p>
-<p>int *p[5]                   指针数组</p>
-<p>void (*p) (int, int)        函数指针</p>
-<p>void (*p[5]) (int, int)     函数指针数组</p>
-<p>void (*(*p)[5]) (int, int)  函数指针数组指针</p>
-<p>指针常量（Pointer Constant）<br>int *const ptr &#x3D; &x;<br>常量指针（Constant Pointer）<br>const int *ptr &#x3D; &x;</p>
-<h3 id="空指针"><a href="#空指针" class="headerlink" title="空指针"></a>空指针</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span>* p = <span class="literal">NULL</span>;</span><br><span class="line">gets(p);</span><br></pre></td></tr></table></figure>
-
-<p>p 是一个空指针<br>char* p &#x3D; NULL;<br>这里将 p 初始化为 NULL，意味着 p 不指向任何有效的内存地址。<br>使用 gets(p) 时，gets() 会尝试将用户输入的数据存储到 p 指向的地址。但此时 p 是 NULL，没有分配内存，因此试图写入数据会导致 段错误（Segmentation Fault） 或 未定义行为。</p>
-
+            <h3 id="读取八进制字符串转为十进制数字"><a href="#读取八进制字符串转为十进制数字" class="headerlink" title="读取八进制字符串转为十进制数字"></a>读取八进制字符串转为十进制数字</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> main() &#123;</span><br><span class="line">    <span class="type">char</span> s[<span class="number">10</span>];</span><br><span class="line">    <span class="type">char</span>* p = s;</span><br><span class="line">    gets(s);</span><br><span class="line">    <span class="type">int</span> num = <span class="number">0</span>;   <span class="comment">// 位数</span></span><br><span class="line">    <span class="type">int</span> result = <span class="number">0</span>; <span class="comment">// 结果</span></span><br><span class="line">    <span class="type">int</span> base = <span class="number">1</span>;   <span class="comment">// 初始权值为1（即8^0）</span></span><br><span class="line">    <span class="keyword">while</span> (*p++ != <span class="string">&#x27;\0&#x27;</span>) num++; <span class="comment">// 遍历字符串，计算位数</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 指针回退到字符串末尾</span></span><br><span class="line">    p--;  <span class="comment">// 使指针指向字符串的最后一个有效字符</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 从字符串末尾开始处理八进制数</span></span><br><span class="line">    <span class="keyword">while</span> (num-- &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        result += (*p - <span class="string">&#x27;0&#x27;</span>) * base; <span class="comment">// (*p - &#x27;0&#x27;)将字符转为数字进行计算，避免使用字符ASCII值计算</span></span><br><span class="line">        base *= <span class="number">8</span>; <span class="comment">// 更新权值，每次乘以8</span></span><br><span class="line">        p--; <span class="comment">// 指针回退</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    printf(<span class="string">&quot;%d\n&quot;</span>, result);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         </div>
 
         
@@ -248,7 +239,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/c/"># c</a>
+                        <a href="/tags/%E7%AE%97%E6%B3%95/"># 算法</a>
                     
                         
                 </span>
@@ -261,10 +252,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2024/08/05/C6/">数组和指针</a>
+                <a class="prev" rel="prev" href="/2025/01/03/Algo2/">Algo2</a>
             
             
-            <a class="next" rel="next" href="/2024/07/03/C4/">数组</a>
+            <a class="next" rel="next" href="/2024/08/09/C8/">待定</a>
             
         </section>
 

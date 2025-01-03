@@ -13,7 +13,7 @@
 
 
 
-<title>指针 | Suno&#39;s Blog</title>
+<title>Algo2 | Suno&#39;s Blog</title>
 
 
 
@@ -127,76 +127,11 @@
                 <div class="container">
     
     
-        <div class="post-toc">
-    <div class="tocbot-list">
-    </div>
-    <div class="tocbot-list-menu">
-        <a class="tocbot-toc-expand" onclick="expand_toc()">展开</a>
-        <a onclick="go_top()">顶端</a>
-        <a onclick="go_bottom()">底部</a>
-    </div>
-</div>
-
-<script>
-    var tocbot_timer;
-    var DEPTH_MAX = 6; // 为 6 时展开所有
-    var tocbot_default_config = {
-        tocSelector: '.tocbot-list',
-        contentSelector: '.post-content',
-        headingSelector: 'h1, h2, h3, h4, h5',
-        orderedList: false,
-        scrollSmooth: true,
-        onClick: extend_click,
-    };
-
-    function extend_click() {
-        clearTimeout(tocbot_timer);
-        tocbot_timer = setTimeout(function() {
-            tocbot.refresh(obj_merge(tocbot_default_config, {
-                hasInnerContainers: true
-            }));
-        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
-    }
-
-    document.ready(function() {
-        tocbot.init(obj_merge(tocbot_default_config, {
-            collapseDepth: 1
-        }));
-    });
-
-    function expand_toc() {
-        var b = document.querySelector('.tocbot-toc-expand');
-        var expanded = b.getAttribute('data-expanded');
-        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
-        tocbot.refresh(obj_merge(tocbot_default_config, {
-            collapseDepth: expanded ? 1 : DEPTH_MAX
-        }));
-        b.innerText = expanded ? '展开' : '折叠';
-    }
-
-    function go_top() {
-        window.scrollTo(0, 0);
-    }
-
-    function go_bottom() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-
-    function obj_merge(target, source) {
-        for (var item in source) {
-            if (source.hasOwnProperty(item)) {
-                target[item] = source[item];
-            }
-        }
-        return target;
-    }
-</script>
-    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">指针</h1>
+            <h1 class="post-title">Algo2</h1>
             
                 <div class="post-meta">
                     
@@ -205,14 +140,14 @@
 
                     
                         <span class="post-time">
-                        时间: <a href="#">July 5, 2024&nbsp;&nbsp;15:10:04</a>
+                        时间: <a href="#">January 3, 2025&nbsp;&nbsp;20:49:07</a>
                         </span>
                     
                     
                         <span class="post-category">
                         类别:
                             
-                                <a href="/categories/C/">C</a>
+                                <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
                             
                         </span>
                     
@@ -221,16 +156,7 @@
         </header>
 
         <div class="post-content">
-            <p>int (*p)[5]                 数组指针</p>
-<p>int *p[5]                   指针数组</p>
-<p>void (*p) (int, int)        函数指针</p>
-<p>void (*p[5]) (int, int)     函数指针数组</p>
-<p>void (*(*p)[5]) (int, int)  函数指针数组指针</p>
-<p>指针常量（Pointer Constant）<br>int *const ptr &#x3D; &x;<br>常量指针（Constant Pointer）<br>const int *ptr &#x3D; &x;</p>
-<h3 id="空指针"><a href="#空指针" class="headerlink" title="空指针"></a>空指针</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span>* p = <span class="literal">NULL</span>;</span><br><span class="line">gets(p);</span><br></pre></td></tr></table></figure>
-
-<p>p 是一个空指针<br>char* p &#x3D; NULL;<br>这里将 p 初始化为 NULL，意味着 p 不指向任何有效的内存地址。<br>使用 gets(p) 时，gets() 会尝试将用户输入的数据存储到 p 指向的地址。但此时 p 是 NULL，没有分配内存，因此试图写入数据会导致 段错误（Segmentation Fault） 或 未定义行为。</p>
-
+            
         </div>
 
         
@@ -248,7 +174,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/c/"># c</a>
+                        <a href="/tags/%E7%AE%97%E6%B3%95/"># 算法</a>
                     
                         
                 </span>
@@ -261,10 +187,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2024/08/05/C6/">数组和指针</a>
             
-            
-            <a class="next" rel="next" href="/2024/07/03/C4/">数组</a>
+            <a class="next" rel="next" href="/2025/01/03/Algo1/">Algo1</a>
             
         </section>
 
