@@ -127,6 +127,71 @@
                 <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">展开</a>
+        <a onclick="go_top()">顶端</a>
+        <a onclick="go_bottom()">底部</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? '展开' : '折叠';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
 
     
     <article class="post-wrap">
@@ -156,7 +221,15 @@
         </header>
 
         <div class="post-content">
-            
+            <h3 id="百鸡百钱"><a href="#百鸡百钱" class="headerlink" title="百鸡百钱"></a>百鸡百钱</h3><p>用100文钱买100只鸡，其中公鸡5文钱一只，母鸡3文钱一只，小鸡3只1文钱。问如何分配公鸡、母鸡和小鸡的数量，才能刚好满足条件？</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> main() &#123;</span><br><span class="line">    <span class="type">int</span> rooster, hen, chick; <span class="comment">// 分别表示公鸡、母鸡和小鸡的数量</span></span><br><span class="line">    <span class="keyword">for</span> (rooster = <span class="number">0</span>; rooster &lt;= <span class="number">20</span>; rooster++) &#123;  <span class="comment">// 公鸡最多20只（5文钱一只，100÷5）</span></span><br><span class="line">        <span class="keyword">for</span> (hen = <span class="number">0</span>; hen &lt;= <span class="number">33</span>; hen++) &#123;          <span class="comment">// 母鸡最多33只（3文钱一只，100÷3）</span></span><br><span class="line">            chick = <span class="number">100</span> - rooster - hen;           <span class="comment">// 小鸡的数量由总数减去公鸡和母鸡计算得出</span></span><br><span class="line">            <span class="keyword">if</span> (chick % <span class="number">3</span> == <span class="number">0</span>                     <span class="comment">// 小鸡的数量必须是3的倍数</span></span><br><span class="line">                &amp;&amp; <span class="number">5</span> * rooster + <span class="number">3</span> * hen + chick / <span class="number">3</span> == <span class="number">100</span>) <span class="comment">// 总价需刚好等于100文钱</span></span><br><span class="line">            &#123;</span><br><span class="line">                printf(<span class="string">&quot;Roosters: %d, Hens: %d, Chicks: %d\n&quot;</span>, rooster, hen, chick);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="猴子吃桃"><a href="#猴子吃桃" class="headerlink" title="猴子吃桃"></a>猴子吃桃</h3><p>一只猴子第一天摘下若干个桃子，当晚吃了一半还多一个；第二天又吃掉了一半还多一个；以后每天都吃掉剩下的一半还多一个，到第十天时只剩下一个桃子。问：第一天猴子摘下了多少个桃子？</p>
+<p>解法分析<br>设第一天猴子摘下了x个桃子。</p>
+<p>第一天吃掉了 x&#x2F;2+1 个桃子，剩下了 x&#x2F;2−1 个。<br>第二天吃掉了剩余的桃子的一半再多一个，剩下的也可以依此类推。<br>最终，第十天剩下一个桃子，实际上可以通过反推得出第一天的桃子数量。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> main() &#123;</span><br><span class="line">    <span class="type">int</span> peaches = <span class="number">1</span>;  <span class="comment">// 第十天剩下1个桃子</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> day = <span class="number">9</span>; day &gt;= <span class="number">1</span>; day--) &#123;</span><br><span class="line">        <span class="comment">// 每天都推算前一天的桃子数</span></span><br><span class="line">        peaches = (peaches + <span class="number">1</span>) * <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(<span class="string">&quot;%d&quot;</span>, peaches);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 递归函数：求第 n 天的桃子数</span></span><br><span class="line"><span class="type">int</span> getPeaches(<span class="type">int</span> day) &#123;</span><br><span class="line">    <span class="keyword">if</span> (day == <span class="number">10</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>; <span class="comment">// 第十天剩下 1 个桃子</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (getPeaches(day + <span class="number">1</span>) + <span class="number">1</span>) * <span class="number">2</span>; <span class="comment">// 前一天的桃子 = (当天的桃子 + 1) * 2</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> main() &#123;</span><br><span class="line">    <span class="type">int</span> peaches = getPeaches(<span class="number">1</span>); <span class="comment">// 从第 1 天开始计算</span></span><br><span class="line">    printf(<span class="string">&quot;%d&quot;</span>, peaches);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         </div>
 
         
