@@ -13,7 +13,7 @@
 
 
 
-<title>哈希表 | Suno&#39;s Blog</title>
+<title>修饰符 | Suno&#39;s Blog</title>
 
 
 
@@ -127,11 +127,76 @@
                 <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">展开</a>
+        <a onclick="go_top()">顶端</a>
+        <a onclick="go_bottom()">底部</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? '展开' : '折叠';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">哈希表</h1>
+            <h1 class="post-title">修饰符</h1>
             
                 <div class="post-meta">
                     
@@ -140,14 +205,14 @@
 
                     
                         <span class="post-time">
-                        时间: <a href="#">January 4, 2025&nbsp;&nbsp;23:44:17</a>
+                        时间: <a href="#">January 6, 2025&nbsp;&nbsp;10:56:24</a>
                         </span>
                     
                     
                         <span class="post-category">
                         类别:
                             
-                                <a href="/categories/c-DS/">c DS</a>
+                                <a href="/categories/C/">C</a>
                             
                         </span>
                     
@@ -156,7 +221,13 @@
         </header>
 
         <div class="post-content">
-            
+            <h3 id="const限定符"><a href="#const限定符" class="headerlink" title="const限定符"></a>const限定符</h3><p>用于限定一个变量为只读，即常变量 - 具有常属性（不能被改变的属性），但本质上仍为变量。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const int n = 5;</span><br><span class="line">int arr[n] = &#123;0&#125;; //这里的n仍为变量, error: 应输入常量表达式。</span><br></pre></td></tr></table></figure>
+
+<h3 id="static修饰符"><a href="#static修饰符" class="headerlink" title="static修饰符"></a>static修饰符</h3><p>修饰局部变量的时候，局部变量出了作用域不会销毁。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> test()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">static</span> <span class="type">int</span> a = <span class="number">0</span>;</span><br><span class="line">	printf(<span class="string">&quot;%d &quot;</span>, ++a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> main()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (i &lt; <span class="number">10</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		test();</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 2 3 4 5 6 7 8 9 10</span><br></pre></td></tr></table></figure>
         </div>
 
         
@@ -174,7 +245,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/c-DS/"># c DS</a>
+                        <a href="/tags/c/"># c</a>
                     
                         
                 </span>
@@ -187,10 +258,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2025/01/04/AlgoC3/">回溯算法</a>
+                <a class="prev" rel="prev" href="/2025/01/06/AlgoC4/">贪心算法</a>
             
             
-            <a class="next" rel="next" href="/2025/01/04/AlgoC2/">二分查找</a>
+            <a class="next" rel="next" href="/2025/01/04/AlgoC3/">回溯算法</a>
             
         </section>
 

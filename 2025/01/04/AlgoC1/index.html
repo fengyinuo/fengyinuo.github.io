@@ -13,7 +13,7 @@
 
 
 
-<title>二分查找 | Suno&#39;s Blog</title>
+<title>排序 | Suno&#39;s Blog</title>
 
 
 
@@ -131,7 +131,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">二分查找</h1>
+            <h1 class="post-title">排序</h1>
             
                 <div class="post-meta">
                     
@@ -156,7 +156,11 @@
         </header>
 
         <div class="post-content">
-            
+            <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> main()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//冒泡排序</span></span><br><span class="line">	<span class="type">int</span> arr[<span class="number">10</span>] = &#123; <span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span> &#125;;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i &lt; <span class="number">10</span> <span class="number">-1</span>;i++)</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>;j &lt; <span class="number">9</span> - i;j++)</span><br><span class="line">			<span class="keyword">if</span> (arr[j] &gt; arr[j+<span class="number">1</span>])</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="type">int</span> temp = arr[j+<span class="number">1</span>];</span><br><span class="line">				arr[j+<span class="number">1</span>] = arr[j];</span><br><span class="line">				arr[j] = temp;</span><br><span class="line">			&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">		printf(<span class="string">&quot;%d &quot;</span>, arr[i]);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> main()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//选择排序</span></span><br><span class="line">	<span class="type">int</span> arr[<span class="number">10</span>] = &#123; <span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span> &#125;;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span> - <span class="number">1</span>; i++)</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> j = i + <span class="number">1</span>; j &lt; <span class="number">10</span>; j++)</span><br><span class="line">			<span class="keyword">if</span> (arr[i] &gt; arr[j])</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="type">int</span> temp = arr[j];</span><br><span class="line">				arr[j] = arr[i];</span><br><span class="line">				arr[i] = temp;</span><br><span class="line">			&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">		printf(<span class="string">&quot;%d &quot;</span>, arr[i]);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> main()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//选择排序</span></span><br><span class="line">	<span class="type">int</span> arr[<span class="number">10</span>] = &#123; <span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span> &#125;;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span> - <span class="number">1</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> min = i;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> j = i + <span class="number">1</span>; j &lt; <span class="number">10</span>; j++)</span><br><span class="line">			<span class="keyword">if</span> (arr[min] &gt; arr[j]) min = j;</span><br><span class="line">		<span class="keyword">if</span> (min != i)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="type">int</span> temp = arr[i];</span><br><span class="line">			arr[i] = arr[min];</span><br><span class="line">			arr[min] = temp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">		printf(<span class="string">&quot;%d &quot;</span>, arr[i]);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         </div>
 
         
@@ -187,10 +191,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2025/01/04/AlgoC2/">回溯算法</a>
+                <a class="prev" rel="prev" href="/2025/01/04/AlgoC2/">二分查找</a>
             
             
-            <a class="next" rel="next" href="/2025/01/04/ProjectC3/">c project</a>
+            <a class="next" rel="next" href="/2025/01/04/ProjectC3/">常见问题</a>
             
         </section>
 

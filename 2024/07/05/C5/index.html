@@ -229,7 +229,7 @@
 <p>指针常量（Pointer Constant）<br>int *const ptr &#x3D; &x;<br>常量指针（Constant Pointer）<br>const int *ptr &#x3D; &x;</p>
 <h3 id="空指针"><a href="#空指针" class="headerlink" title="空指针"></a>空指针</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span>* p = <span class="literal">NULL</span>;</span><br><span class="line">gets(p);</span><br></pre></td></tr></table></figure>
 
-<p>p 是一个空指针<br>char* p &#x3D; NULL;<br>这里将 p 初始化为 NULL，意味着 p 不指向任何有效的内存地址。<br>使用 gets(p) 时，gets() 会尝试将用户输入的数据存储到 p 指向的地址。但此时 p 是 NULL，没有分配内存，因此试图写入数据会导致 段错误（Segmentation Fault） 或 未定义行为。</p>
+<p>这里将 p 初始化为 NULL 表示 p 的值是一个空指针，意味着 p 不指向任何有效的内存地址。<br>使用 gets(p) 时，gets() 会尝试将用户输入的数据存储到 p 指向的地址。但此时 p 指向的内容（地址指向的内存）没有分配，因此试图写入数据会导致未定义行为。</p>
 
         </div>
 
