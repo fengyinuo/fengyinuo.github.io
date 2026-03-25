@@ -233,87 +233,194 @@
 
 <p>xxxx </p>
 <hr>
-<h3 id="进制"><a href="#进制" class="headerlink" title="进制"></a>进制</h3><table>
+<h3 id="sizeof运算符"><a href="#sizeof运算符" class="headerlink" title="sizeof运算符"></a>sizeof运算符</h3><p>用于计算变量或类型的大小，结果为无符号整数类型（size_t Byte）。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sizeof(char): 1</span><br><span class="line">sizeof(int): 4</span><br><span class="line">sizeof(short): 2</span><br><span class="line">sizeof(long): 4</span><br><span class="line">sizeof(long long): 8</span><br><span class="line">sizeof(float): 4</span><br><span class="line">sizeof(double): 8</span><br></pre></td></tr></table></figure>
+
+<p>sizeof 是一个在编译时求值的运算符，用于计算类型或变量所占的字节数。它不会实际计算表达式的值，而是只看表达式的类型。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> b = <span class="number">2</span>;</span><br><span class="line"><span class="type">short</span> c = <span class="number">6</span>;</span><br><span class="line"><span class="type">int</span> s = <span class="keyword">sizeof</span>(c = a + b);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;s = %d\n c = %d&quot;</span>, s, c);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = 2</span><br><span class="line">c = 6</span><br></pre></td></tr></table></figure>
+<p>sizeof(c &#x3D; a + b) 中 c &#x3D; a + b 不会被执行，sizeof 只关心 c 的类型。sizeof(c &#x3D; a + b) &#x3D;&gt; sizeof(short)</p>
+<h3 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h3><table>
 <thead>
 <tr>
 <th align="center"></th>
-<th align="center">（0b）二进制</th>
-<th align="center">（0）八进制（%o）</th>
-<th align="center">（0x）十六进制（%x）</th>
+<th align="left"></th>
+<th align="left"></th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="center"></td>
-<td align="center">0 0 0 0</td>
-<td align="center">0 0 0 0</td>
-<td align="center">0 0 0 0</td>
+<td align="center"><code>.</code></td>
+<td align="left">成员选择</td>
+<td align="left">object.member</td>
 </tr>
 <tr>
-<td align="center">位权</td>
-<td align="center">8 4 2 1</td>
-<td align="center">512 64 8 1</td>
-<td align="center">4096 256 16 1</td>
+<td align="center"><code>-&gt;</code></td>
+<td align="left">成员选择</td>
+<td align="left">object-&gt;member</td>
+</tr>
+<tr>
+<td align="center"><code>[]</code></td>
+<td align="left">下标</td>
+<td align="left">expr[expr]</td>
+</tr>
+<tr>
+<td align="center"><code>++</code></td>
+<td align="left">后置自增</td>
+<td align="left">lvalue++</td>
+</tr>
+<tr>
+<td align="center"><code>--</code></td>
+<td align="left">后置自减</td>
+<td align="left">lvalue–</td>
+</tr>
+<tr>
+<td align="center"><code>++</code></td>
+<td align="left">前置自增</td>
+<td align="left">++lvalue</td>
+</tr>
+<tr>
+<td align="center"><code>--</code></td>
+<td align="left">前置自减</td>
+<td align="left">–lvalue</td>
+</tr>
+<tr>
+<td align="center"><code>~</code></td>
+<td align="left">位求反</td>
+<td align="left">~expr</td>
+</tr>
+<tr>
+<td align="center"><code>!</code></td>
+<td align="left">逻辑非</td>
+<td align="left">!expr</td>
+</tr>
+<tr>
+<td align="center"><code>-</code></td>
+<td align="left">一元负号</td>
+<td align="left">-expr</td>
+</tr>
+<tr>
+<td align="center"><code>+</code></td>
+<td align="left">一元正号</td>
+<td align="left">+expr</td>
+</tr>
+<tr>
+<td align="center"><code>*</code></td>
+<td align="left">解引用</td>
+<td align="left">*expr</td>
+</tr>
+<tr>
+<td align="center"><code>&amp;</code></td>
+<td align="left">取地址</td>
+<td align="left">&amp;lvalue</td>
+</tr>
+<tr>
+<td align="center"><code>*</code></td>
+<td align="left">乘法</td>
+<td align="left">expr * expr</td>
+</tr>
+<tr>
+<td align="center"><code>/</code></td>
+<td align="left">除法</td>
+<td align="left">expr &#x2F; expr</td>
+</tr>
+<tr>
+<td align="center"><code>%</code></td>
+<td align="left">取模（取余）</td>
+<td align="left">expr % expr</td>
+</tr>
+<tr>
+<td align="center"><code>+</code></td>
+<td align="left">加法</td>
+<td align="left">expr + expr</td>
+</tr>
+<tr>
+<td align="center"><code>-</code></td>
+<td align="left">减法</td>
+<td align="left">expr - expr</td>
+</tr>
+<tr>
+<td align="center"><code>&lt;&lt;</code></td>
+<td align="left">左移</td>
+<td align="left">expr &lt;&lt; expr</td>
+</tr>
+<tr>
+<td align="center"><code>&gt;&gt;</code></td>
+<td align="left">右移</td>
+<td align="left">expr &gt;&gt; expr</td>
+</tr>
+<tr>
+<td align="center"><code>&lt;</code></td>
+<td align="left">小于</td>
+<td align="left">expr &lt; expr</td>
+</tr>
+<tr>
+<td align="center"><code>&lt;=</code></td>
+<td align="left">小于等于</td>
+<td align="left">expr &lt;&#x3D; expr</td>
+</tr>
+<tr>
+<td align="center"><code>&gt;</code></td>
+<td align="left">大于</td>
+<td align="left">expr &gt; expr</td>
+</tr>
+<tr>
+<td align="center"><code>&gt;=</code></td>
+<td align="left">大于等于</td>
+<td align="left">expr &gt;&#x3D; expr</td>
+</tr>
+<tr>
+<td align="center"><code>==</code></td>
+<td align="left">相等</td>
+<td align="left">expr &#x3D;&#x3D; expr</td>
+</tr>
+<tr>
+<td align="center"><code>!=</code></td>
+<td align="left">不等</td>
+<td align="left">expr !&#x3D; expr</td>
+</tr>
+<tr>
+<td align="center"><code>&amp;</code></td>
+<td align="left">位与</td>
+<td align="left">expr &amp; expr</td>
+</tr>
+<tr>
+<td align="center"><code>^</code></td>
+<td align="left">位异或</td>
+<td align="left">expr ^ expr</td>
+</tr>
+<tr>
+<td align="center"><code>|</code></td>
+<td align="left">位或</td>
+<td align="left">expr | expr</td>
+</tr>
+<tr>
+<td align="center"><code>&amp;&amp;</code></td>
+<td align="left">逻辑与</td>
+<td align="left">expr &amp;&amp; expr</td>
+</tr>
+<tr>
+<td align="center"><code>||</code></td>
+<td align="left">逻辑或</td>
+<td align="left">expr || expr</td>
+</tr>
+<tr>
+<td align="center"><code>?:</code></td>
+<td align="left">条件</td>
+<td align="left">expr ? expr : expr</td>
+</tr>
+<tr>
+<td align="center"><code>=</code></td>
+<td align="left">赋值</td>
+<td align="left">lvalue &#x3D; expr</td>
+</tr>
+<tr>
+<td align="center"><code>*=</code>, <code>/=</code>, <code>%=</code><br><code>+=</code>, <code>-=</code><br><code>&lt;&lt;=</code>, <code>&gt;&gt;=</code><br><code>&amp;=</code>, <code>|=</code>, <code>^=</code></td>
+<td align="left">复合赋值</td>
+<td align="left"></td>
 </tr>
 </tbody></table>
-<h3 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h3><p>在 C 语言中，有符号整数采用二进制补码形式存储。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int a = 4;</span><br><span class="line">00000000 00000000 00000000 00000100 — 原码， 反码，补码（正数原、反、补码相同）</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int a = -3;</span><br><span class="line">10000000 00000000 00000000 00000011 — 原码</span><br><span class="line">11111111 11111111 11111111 11111100 — 反码（符号位不变，原码数值位按位取反）</span><br><span class="line">11111111 11111111 11111111 11111101 — 补码（反码末位加1）</span><br></pre></td></tr></table></figure>
-
-<h4 id="负数符号位是1，正数符号位是0"><a href="#负数符号位是1，正数符号位是0" class="headerlink" title="负数符号位是1，正数符号位是0"></a>负数符号位是1，正数符号位是0</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  00000000 00000000 00000000 00000100（+4 的补码）</span><br><span class="line">+ 11111111 11111111 11111111 11111101（-3 的补码）</span><br><span class="line">  0（符号位）0000000 00000000 00000000 00000001（结果：+1的补码）</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  00000000 00000000 00000000 00000011（+3 的补码）</span><br><span class="line">+ 11111111 11111111 11111111 11111100（-4 的补码）</span><br><span class="line">  1（符号位）1111111 11111111 11111111 11111111（结果：-1的补码）</span><br></pre></td></tr></table></figure>
-
-<h3 id="进制存储"><a href="#进制存储" class="headerlink" title="进制存储"></a>进制存储</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">short a = 0b1111111111111101;</span><br><span class="line">short c = 0xFFFD;</span><br><span class="line">short e = 0177775;</span><br><span class="line">short g = -3;</span><br><span class="line"></span><br><span class="line">short b = 0b0000000000000011;</span><br><span class="line">short d = 0x0003;</span><br><span class="line">short f = 0000003;</span><br><span class="line">short h = 3;</span><br><span class="line"></span><br><span class="line">// 不同进制本质上表示的是同一数值，最终存入内存的是统一的二进制补码。</span><br></pre></td></tr></table></figure>
-<h4 id="当发生提升时，根据原来有无符号进行首位扩展；当发生减位时，会从首位开始截断。"><a href="#当发生提升时，根据原来有无符号进行首位扩展；当发生减位时，会从首位开始截断。" class="headerlink" title="当发生提升时，根据原来有无符号进行首位扩展；当发生减位时，会从首位开始截断。"></a>当发生提升时，根据原来有无符号进行首位扩展；当发生减位时，会从首位开始截断。</h4><h3 id="数值范围"><a href="#数值范围" class="headerlink" title="数值范围"></a>数值范围</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;limits.h&gt; /*明示常量：INT_MAX、INT_MIN、UINT_MAX*/</span></span></span><br><span class="line"></span><br><span class="line">printf(<span class="string">&quot;INT_MAX: %d\n&quot;</span>, INT_MAX);    </span><br><span class="line">printf(<span class="string">&quot;INT_MIN: %d\n&quot;</span>, INT_MIN);    </span><br><span class="line">printf(<span class="string">&quot;UINT_MAX: %u\n&quot;</span>, <span class="built_in">UINT_MAX</span>);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">INT_MAX: 2147483647</span><br><span class="line">INT_MIN: -2147483648</span><br><span class="line">UINT_MAX: 4294967295</span><br><span class="line"></span><br><span class="line">//无符号整数没有 UINT_MIN，因为它固定为 0。</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th></th>
-<th>最小值</th>
-<th>最大值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>int</td>
-<td>-2^31 &#x3D; −2147483648</td>
-<td>2^31 - 1 &#x3D; 2147483647</td>
-</tr>
-<tr>
-<td>unsigned int</td>
-<td>0</td>
-<td>2^32 - 1 &#x3D; 4294967295</td>
-</tr>
-</tbody></table>
-<h3 id="整数越界"><a href="#整数越界" class="headerlink" title="整数越界"></a>整数越界</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">2147483648</span>; <span class="comment">//超过最大数值  </span></span><br><span class="line">printf(<span class="string">&quot;%d&quot;</span>, a);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">−2147483648</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">-3</span>;</span><br><span class="line">printf(<span class="string">&quot;%u&quot;</span>, a); <span class="comment">//超过最小数值</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4294967293</span><br></pre></td></tr></table></figure>
-
-<h3 id="算术转换"><a href="#算术转换" class="headerlink" title="算术转换"></a>算术转换</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">-1</span>;</span><br><span class="line"><span class="type">unsigned</span> <span class="type">int</span> b = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span> (a &lt; b) &#123;</span><br><span class="line">    printf(<span class="string">&quot;a &lt; b&quot;</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    printf(<span class="string">&quot;a &gt; b&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a &gt; b</span><br></pre></td></tr></table></figure>
-
-<p>在 C 语言中，当进行比较运算（如 &lt;）时，如果操作数的类型不同，其中一个是无符号类型，另一个是有符号类型，会将有符号类型转换为无符号类型。<br>这里，a 的值是 -1，但在与 b（无符号整型）比较时，a 会被转换为无符号整型，即4294967295。</p>
-<h3 id="整形提升"><a href="#整形提升" class="headerlink" title="整形提升"></a>整形提升</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> a = <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line"><span class="type">char</span> b = <span class="string">&#x27;b&#x27;</span>;</span><br><span class="line">printf(<span class="string">&quot;%d&quot;</span>, <span class="keyword">sizeof</span>(a + b));</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure>
-
-<p>在 C 语言中，当进行算术运算（如 +）时，如果操作数的类型比 int 小（如 char 或 short），会先将它们提升为 int。</p>
-<h3 id="sizeof运算符"><a href="#sizeof运算符" class="headerlink" title="sizeof运算符"></a>sizeof运算符</h3><p>用于计算变量或类型的大小，结果为无符号整数类型（size_t），单位是字节。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sizeof(char): 1</span><br><span class="line">sizeof(int): 4</span><br><span class="line">sizeof(short): 2</span><br><span class="line">sizeof(long): 4</span><br><span class="line">sizeof(long long): 8</span><br><span class="line">sizeof(float): 4</span><br><span class="line">sizeof(double): 8</span><br></pre></td></tr></table></figure>
-
-<h4 id="sizeof-是一个在编译时求值的运算符，用于计算类型或变量所占的字节数。它不会实际计算表达式的值，而是只看表达式的类型。"><a href="#sizeof-是一个在编译时求值的运算符，用于计算类型或变量所占的字节数。它不会实际计算表达式的值，而是只看表达式的类型。" class="headerlink" title="sizeof 是一个在编译时求值的运算符，用于计算类型或变量所占的字节数。它不会实际计算表达式的值，而是只看表达式的类型。"></a>sizeof 是一个在编译时求值的运算符，用于计算类型或变量所占的字节数。它不会实际计算表达式的值，而是只看表达式的类型。</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> b = <span class="number">2</span>;</span><br><span class="line"><span class="type">short</span> c = <span class="number">6</span>;</span><br><span class="line"><span class="type">int</span> s = <span class="keyword">sizeof</span>(c = a + b);</span><br><span class="line">printf(<span class="string">&quot;s = %d\n c = %d&quot;</span>, s, c);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = 2</span><br><span class="line">c = 6</span><br></pre></td></tr></table></figure>
-
-<h4 id="sizeof-c-a-b-中-c-a-b-不会被执行，sizeof-只关心-c-的类型。sizeof-c-a-b-sizeof-short"><a href="#sizeof-c-a-b-中-c-a-b-不会被执行，sizeof-只关心-c-的类型。sizeof-c-a-b-sizeof-short" class="headerlink" title="sizeof(c &#x3D; a + b) 中 c &#x3D; a + b 不会被执行，sizeof 只关心 c 的类型。sizeof(c &#x3D; a + b) &#x3D;&gt; sizeof(short)"></a>sizeof(c &#x3D; a + b) 中 c &#x3D; a + b 不会被执行，sizeof 只关心 c 的类型。sizeof(c &#x3D; a + b) &#x3D;&gt; sizeof(short)</h4>
         </div>
 
         

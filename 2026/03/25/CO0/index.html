@@ -281,6 +281,20 @@
 <td>2^32 - 1 &#x3D; 4294967295</td>
 </tr>
 </tbody></table>
+<br>
+<br>
+
+<p>当大字长变量向小字长变量强制类型转换时，系统把多余的高位部分直接截断，低位直接赋值。<br>当短字长到长字长的转换时，如果原数字是无符号整数，则进行零扩展，扩展后的高位部分用0填充。否则进行符号扩展，扩展后的高位部分用原数字符号位填充。</p>
+<h3 id="隐式转换"><a href="#隐式转换" class="headerlink" title="隐式转换"></a>隐式转换</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">-1</span>;</span><br><span class="line"><span class="type">unsigned</span> <span class="type">int</span> b = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span> (a &lt; b) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;a &lt; b&quot;</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;a &gt; b&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a &gt; b</span><br></pre></td></tr></table></figure>
+
+<p>signed &amp; unsigned 进行表达式运算时，会发生“隐式类型转换”，signed 类型转换为 unsigned 类型。int a 会被转换为 unsigned int &#x3D;&gt; 4294967295。</p>
+<h3 id="整形提升"><a href="#整形提升" class="headerlink" title="整形提升"></a>整形提升</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> a = <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line"><span class="type">char</span> b = <span class="string">&#x27;b&#x27;</span>;</span><br><span class="line">printf(<span class="string">&quot;%d&quot;</span>, <span class="keyword">sizeof</span>(a + b));</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure>
+
+<p>char、signed char、unsigned char、short、unsigned short 进行表达式运算时，会被提升为 int。在16位环境下，short(16位)、int(16位)，unsigned short &gt; int，unsigned short会被转换为 unsigned int。</p>
 <h3 id="ASCII"><a href="#ASCII" class="headerlink" title="ASCII"></a>ASCII</h3><table>
 <thead>
 <tr>
