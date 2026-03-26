@@ -134,6 +134,71 @@
                 <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
 
     
     <article class="post-wrap">
@@ -154,7 +219,7 @@
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/CPP/">CPP</a>
+                                <a href="/categories/C/">C++</a>
                             
                         </span>
                     
@@ -171,6 +236,8 @@
 <p>以上关系表明了数组和指针的关系十分密切，可以使用指针标识数组的元素和获得元素的值。从本质上看，同一个对象有两种表示法。<br>实际上，C语言标准在描述数组表示法时确实借助了指针。也就是说，定义arr[n]的意思是*(arr+n)。<br>可以认为*(arr+n)的意思是“到内存的arr位置，然后移动n个单元，检索存储在那里的值”。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int sun(int *arr, int n);</span><br><span class="line">int sun(int *, int);</span><br><span class="line">int sun(int arr[], int n);</span><br><span class="line">int sun(int [], int);</span><br></pre></td></tr></table></figure>
 <p>由于函数原型可以省略参数名，所以以上4种原型都是等价的。</p>
+<h3 id="地址编码"><a href="#地址编码" class="headerlink" title="地址编码"></a>地址编码</h3><p>32位操作系统的环境下内存地址是由8个十六进制数（32位）编址，可以表示的地址范围是从 0x00000000 到 0xFFFFFFFF，一共 2^32（16 * 16 * 16 * 16 * 16 * 16 * 16 * 16）个地址，每个地址对应 1 字节，因此 CPU 最多能寻址 4GB（2^32Byte） 内存。</p>
+<p>当取地址 int a 时拿到的是第一个字节的地址。</p>
 
         </div>
 

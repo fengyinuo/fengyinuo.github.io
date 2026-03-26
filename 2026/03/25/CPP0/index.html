@@ -13,7 +13,7 @@
 
 
 
-<title>CPP0 | suno&#39;s blog</title>
+<title>运算符 | suno&#39;s blog</title>
 
 
 
@@ -203,7 +203,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">CPP0</h1>
+            <h1 class="post-title">运算符</h1>
             
                 <div class="post-meta">
                     
@@ -219,7 +219,7 @@
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/CPP/">CPP</a>
+                                <a href="/categories/C/">C++</a>
                             
                         </span>
                     
@@ -228,20 +228,14 @@
         </header>
 
         <div class="post-content">
-            <blockquote><p>xxxx</p>
-<footer><strong><br> 书籍：《C Primer Plus》 —Stephen Prata<br> 博主：@ <a href=https://space.bilibili.com/456828781 target=_blank>鹏哥C语言(bilibili)</a> 、@ <a href=https://space.bilibili.com/128373173 target=_blank>来自程序员的暴击(bilibili)</a><br> 网站：@</strong><cite><a target="_blank" rel="noopener" href="https://www.baidu.com">百 度</a></cite></footer></blockquote>
-
-<p>xxxx </p>
-<hr>
-<h3 id="sizeof运算符"><a href="#sizeof运算符" class="headerlink" title="sizeof运算符"></a>sizeof运算符</h3><p>用于计算变量或类型的大小，结果为无符号整数类型（size_t Byte）。</p>
+            <h3 id="sizeof运算符"><a href="#sizeof运算符" class="headerlink" title="sizeof运算符"></a>sizeof运算符</h3><p>sizeof 运算符返回一条表达式（expr）或一个类型名字（type）所占的字节数。其所得的值是一个 size_t 类型的常量表达式。在 sizeof expr 中，sizeof 返回的是表达式结果类型的大小。与众不同的一点是，sizeof 并不实际计算其运算值对象的值。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sizeof(char): 1</span><br><span class="line">sizeof(int): 4</span><br><span class="line">sizeof(short): 2</span><br><span class="line">sizeof(long): 4</span><br><span class="line">sizeof(long long): 8</span><br><span class="line">sizeof(float): 4</span><br><span class="line">sizeof(double): 8</span><br></pre></td></tr></table></figure>
 
-<p>sizeof 是一个在编译时求值的运算符，用于计算类型或变量所占的字节数。它不会实际计算表达式的值，而是只看表达式的类型。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> b = <span class="number">2</span>;</span><br><span class="line"><span class="type">short</span> c = <span class="number">6</span>;</span><br><span class="line"><span class="type">int</span> s = <span class="keyword">sizeof</span>(c = a + b);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;s = %d\n c = %d&quot;</span>, s, c);</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = 2</span><br><span class="line">c = 6</span><br></pre></td></tr></table></figure>
-<p>sizeof(c &#x3D; a + b) 中 c &#x3D; a + b 不会被执行，sizeof 只关心 c 的类型。sizeof(c &#x3D; a + b) &#x3D;&gt; sizeof(short)</p>
-<h3 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h3><table>
+<p>sizeof(c &#x3D; a + b) 中 c &#x3D; a + b 不会被执行，sizeof 只关心 c 的类型，sizeof(c &#x3D; a + b) &#x3D;&gt; sizeof(short)。</p>
+<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><table>
 <thead>
 <tr>
 <th align="center"></th>
@@ -443,7 +437,7 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2026/03/25/CPP1/">CPP1</a>
+                <a class="prev" rel="prev" href="/2026/03/25/CPP1/">待整理</a>
             
             
         </section>

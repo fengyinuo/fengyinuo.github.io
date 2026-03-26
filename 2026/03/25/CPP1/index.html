@@ -13,7 +13,7 @@
 
 
 
-<title>CPP1 | suno&#39;s blog</title>
+<title>待整理 | suno&#39;s blog</title>
 
 
 
@@ -134,76 +134,11 @@
                 <div class="container">
     
     
-        <div class="post-toc">
-    <div class="tocbot-list">
-    </div>
-    <div class="tocbot-list-menu">
-        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
-        <a onclick="go_top()">Back to top</a>
-        <a onclick="go_bottom()">Go to bottom</a>
-    </div>
-</div>
-
-<script>
-    var tocbot_timer;
-    var DEPTH_MAX = 6; // 为 6 时展开所有
-    var tocbot_default_config = {
-        tocSelector: '.tocbot-list',
-        contentSelector: '.post-content',
-        headingSelector: 'h1, h2, h3, h4, h5',
-        orderedList: false,
-        scrollSmooth: true,
-        onClick: extend_click,
-    };
-
-    function extend_click() {
-        clearTimeout(tocbot_timer);
-        tocbot_timer = setTimeout(function() {
-            tocbot.refresh(obj_merge(tocbot_default_config, {
-                hasInnerContainers: true
-            }));
-        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
-    }
-
-    document.ready(function() {
-        tocbot.init(obj_merge(tocbot_default_config, {
-            collapseDepth: 1
-        }));
-    });
-
-    function expand_toc() {
-        var b = document.querySelector('.tocbot-toc-expand');
-        var expanded = b.getAttribute('data-expanded');
-        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
-        tocbot.refresh(obj_merge(tocbot_default_config, {
-            collapseDepth: expanded ? 1 : DEPTH_MAX
-        }));
-        b.innerText = expanded ? 'Expand all' : 'Collapse all';
-    }
-
-    function go_top() {
-        window.scrollTo(0, 0);
-    }
-
-    function go_bottom() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-
-    function obj_merge(target, source) {
-        for (var item in source) {
-            if (source.hasOwnProperty(item)) {
-                target[item] = source[item];
-            }
-        }
-        return target;
-    }
-</script>
-    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">CPP1</h1>
+            <h1 class="post-title">待整理</h1>
             
                 <div class="post-meta">
                     
@@ -219,7 +154,7 @@
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/CPP/">CPP</a>
+                                <a href="/categories/C/">C++</a>
                             
                         </span>
                     
@@ -228,12 +163,9 @@
         </header>
 
         <div class="post-content">
-            <p>在计算机中内存是以位为最小存储单位，把8位划分成一个内存单元，每个内存单元的大小是<strong>1字节</strong>。</p>
-<p>为了能够有效的访问到内存的每个单元，就给内存单元进行了编号，这些编号就被称为该内存单元的<strong>地址</strong>。</p>
-<h3 id="数据存取"><a href="#数据存取" class="headerlink" title="数据存取"></a>数据存取</h3><p><strong>CPU</strong> &lt; —— &gt; <em>寄存器</em> &lt; —— &gt; <em>高速缓存</em> &lt; —— &gt; <strong>内存</strong> &lt; —— &gt; <strong>硬盘</strong></p>
-<h3 id="地址编码"><a href="#地址编码" class="headerlink" title="地址编码"></a>地址编码</h3><p>32位操作系统的环境下内存地址是由8个十六进制数（32位）编址，可以表示的地址范围是从 0x00000000 到 0xFFFFFFFF，一共 2^32（16 * 16 * 16 * 16 * 16 * 16 * 16 * 16）个地址，每个地址对应 1 字节，因此 CPU 最多能寻址 4GB（2^32Byte） 内存。</p>
-<p>int a &#x3D; 1; 整型变量a在内存中要分配4个字节的空间。</p>
-<h4 id="当取地址a时拿到的是第一个字节的地址"><a href="#当取地址a时拿到的是第一个字节的地址" class="headerlink" title="当取地址a时拿到的是第一个字节的地址"></a>当取地址a时拿到的是第一个字节的地址</h4>
+            <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> count1()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="type">int</span> n = <span class="number">0</span>;</span><br><span class="line">    n++;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> n; <span class="comment">//此处实际为：int temp = n; 将n的值给到临时变量temp后，将temp作为返回值。</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span>&amp; count2()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="type">int</span> n = <span class="number">0</span>;</span><br><span class="line">    n++;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> n; <span class="comment">//此处实际为：int&amp; temp = n; 取n的别名temp后，将temp作为返回值。</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span>&amp; r1 = count1(); <span class="comment">//error：返回值为n的临时拷贝为只读变量。</span></span><br><span class="line">    <span class="type">int</span>&amp; r2 = count2();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> student</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line"></span><br><span class="line">	student()&#123;&#125; <span class="comment">//默认构造函数：编译器自动生成</span></span><br><span class="line"></span><br><span class="line">	student() &#123;</span><br><span class="line">		_age = <span class="number">1</span>;</span><br><span class="line">		_<span class="type">id</span> = <span class="number">1</span>;</span><br><span class="line">	&#125; <span class="comment">//默认构造函数：无参</span></span><br><span class="line"></span><br><span class="line">	student(<span class="type">int</span> age = <span class="number">1</span>, <span class="type">int</span> <span class="type">id</span> = <span class="number">1</span>) &#123;</span><br><span class="line">		_age = age;</span><br><span class="line">		_<span class="type">id</span> = <span class="type">id</span>;</span><br><span class="line">	&#125; <span class="comment">//默认构造函数：全缺省</span></span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">	<span class="type">int</span> _age;</span><br><span class="line">	<span class="type">int</span> _<span class="type">id</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> main() &#123;</span><br><span class="line">	student suno;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         </div>
 
         
@@ -259,7 +191,7 @@
                 <a class="prev" rel="prev" href="/2026/03/25/CPP2/">CPP2</a>
             
             
-            <a class="next" rel="next" href="/2026/03/25/CPP0/">CPP0</a>
+            <a class="next" rel="next" href="/2026/03/25/CPP0/">运算符</a>
             
         </section>
 
