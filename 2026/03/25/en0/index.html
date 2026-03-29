@@ -13,7 +13,7 @@
 
 
 
-<title>时态语态 | suno&#39;s blog</title>
+<title>时态 | suno&#39;s blog</title>
 
 
 
@@ -134,11 +134,76 @@
                 <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">时态语态</h1>
+            <h1 class="post-title">时态</h1>
             
                 <div class="post-meta">
                     
@@ -163,7 +228,11 @@
         </header>
 
         <div class="post-content">
-            <table>
+            <p>我们通常所说的时态（tense and aspect）​，在英语中其实反映的是两个不同的概念，即tense（时）和aspect（态或体）​。与时间相联系的“时”​，以及与动作的内在结构相关的“态”或“体”​，这两方面组合在一起就构成了“时态”​。</p>
+<p>Tense（时）是用来规定事物发生的时间的。</p>
+<p>Aspect（态）是用来规定动作完成的程度，反映说话者对事物的态度的。</p>
+<p>英语的“态（aspect）​”是有关动作内在结构特点方面的属性。当我们谈到“时（tense）​”的时候，我们关心的是这个动作发生的时间，即是在现在、过去还是将来发生的。当我们谈到“态（aspect）​”的时候，我们关心的则是这个动作是固定不变的还是动态变化的（fixed or changing）​，这个动作是完成了的还是在延续的（completeor ongoing）​，这个动作持续的时间是很短还是很长（lasting for only a moment or for a long time）等等。</p>
+<table>
 <thead>
 <tr>
 <th align="center"></th>
@@ -202,7 +271,35 @@
 <td align="center"><font size=2>would have been doing</font></td>
 </tr>
 </tbody></table>
-<table>
+<p>简单体（simple，或者称为零体态动作）</p>
+<h3 id="谓语公式"><a href="#谓语公式" class="headerlink" title="谓语公式"></a>谓语公式</h3><table>
+<thead>
+<tr>
+<th align="center">Tense</th>
+<th align="center">(Modeal)</th>
+<th align="center">(Continuous)</th>
+<th align="center">(Perfect)</th>
+<th align="center">Verb</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Present or Past</td>
+<td align="center">(will)</td>
+<td align="center">(be + -ing)</td>
+<td align="center">(have + -ed)</td>
+<td align="center">Verb</td>
+</tr>
+</tbody></table>
+<p>英语中所有的谓语形式都可以从上面这个谓语公式推导出来。其中括号“​（​）​”表示它是一个备选项，即可以被省去。对于上面这个公式，现在说明如下：</p>
+<ul>
+<li>Tense表示“时”​，主要有两种最基本的“时”​：现在（Present）和过去（Past）​。</li>
+<li>Modal表示英语谓语中的“情态”​，这里以will作为代表。由tense加modal就可以构成上面说过的英语中的另外两种“时”​：将来时（will）和过去将来时（would）​。</li>
+<li>Continuous表示“进行体”​，这里以be+-ing来表示。</li>
+<li>Perfect表示“完成体”​，这里以have+-ed来表示。</li>
+<li>Verb表示英语的谓语动词，它没有用括号，表示谓语动词不是备选项，而是必不可少的。</li>
+</ul>
+<p>除了动词是英语谓语必不可少的一部分，​“时”也是英语谓语必不可少的组成部分。因此，英语谓语的核心组成有两部分：一个是表示动作发生时间的“时”​，另一个是基础动词。这其实也就是英语“一般时态”的基本构成。</p>
+<h3 id="被动语态"><a href="#被动语态" class="headerlink" title="被动语态"></a>被动语态</h3><table>
 <thead>
 <tr>
 <th align="center"></th>
