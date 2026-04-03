@@ -252,15 +252,15 @@
 </tr>
 </tbody></table>
 <p>真值是机器数所代表的实际值。通常用正号、负号来表示正数和负数。<br>机器数把符号’数字化’，通常将数的符号和数值部分一起编码，将数据的符号数字化，通常用’0’表示’正’，用’1’表示’负’。常见的有原码、补码和反码表示法。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int a = 4;</span><br><span class="line">00000000 00000000 00000000 00000100 — 原码， 反码，补码（正数原码、反码和补码相同）</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">4</span>;</span><br><span class="line"><span class="number">00000000</span> <span class="number">00000000</span> <span class="number">00000000</span> <span class="number">00000100</span> — 原码， 反码，补码（正数原码、反码和补码相同）</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int a = -3;</span><br><span class="line">10000000 00000000 00000000 00000011 — 原码</span><br><span class="line">11111111 11111111 11111111 11111100 — 反码（符号位不变，原码数值位按位取反）</span><br><span class="line">11111111 11111111 11111111 11111101 — 补码（反码末位加1）</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">-3</span>;</span><br><span class="line"><span class="number">10000000</span> <span class="number">00000000</span> <span class="number">00000000</span> <span class="number">00000011</span> — 原码</span><br><span class="line"><span class="number">11111111</span> <span class="number">11111111</span> <span class="number">11111111</span> <span class="number">11111100</span> — 反码（符号位不变，原码数值位按位取反）</span><br><span class="line"><span class="number">11111111</span> <span class="number">11111111</span> <span class="number">11111111</span> <span class="number">11111101</span> — 补码（反码末位加<span class="number">1</span>）</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">short a0 = 0b0000000000000011;</span><br><span class="line">short b0 = 3;</span><br><span class="line">short c0 = 0000003;</span><br><span class="line">short d0 = 0x0003;</span><br><span class="line"></span><br><span class="line">short a1 = 0b1111111111111101;</span><br><span class="line">short b1 = -3;</span><br><span class="line">short c1 = 0177775;</span><br><span class="line">short d1 = 0xFFFD;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">short</span> a0 = <span class="number">0b0000000000000011</span>;</span><br><span class="line"><span class="type">short</span> b0 = <span class="number">3</span>;</span><br><span class="line"><span class="type">short</span> c0 = <span class="number">0000003</span>;</span><br><span class="line"><span class="type">short</span> d0 = <span class="number">0x0003</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">short</span> a1 = <span class="number">0b1111111111111101</span>;</span><br><span class="line"><span class="type">short</span> b1 = <span class="number">-3</span>;</span><br><span class="line"><span class="type">short</span> c1 = <span class="number">0177775</span>;</span><br><span class="line"><span class="type">short</span> d1 = <span class="number">0xFFFD</span>;</span><br></pre></td></tr></table></figure>
 
 <h3 id="数值范围"><a href="#数值范围" class="headerlink" title="数值范围"></a>数值范围</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;limits.h&gt;</span> <span class="comment">/*明示常量：INT_MAX、INT_MIN、UINT_MAX*/</span></span></span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;INT_MAX: %d\n&quot;</span>, INT_MAX);    </span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;INT_MIN: %d\n&quot;</span>, INT_MIN);    </span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;UINT_MAX: %u\n&quot;</span>, UINT_MAX);</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">INT_MAX: 2147483647</span><br><span class="line">INT_MIN: -2147483648</span><br><span class="line">UINT_MAX: 4294967295</span><br><span class="line"></span><br><span class="line">//无符号整数没有 UINT_MIN，固定为 0。</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">INT_MAX: <span class="number">2147483647</span></span><br><span class="line">INT_MIN: <span class="number">-2147483648</span></span><br><span class="line">UINT_MAX: <span class="number">4294967295</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//无符号整数没有 UINT_MIN，固定为 0。</span></span><br></pre></td></tr></table></figure>
 
 <table>
 <thead>
@@ -284,15 +284,15 @@
 <br>
 <br>
 
-<p>当大字长变量向小字长变量强制类型转换时，系统把多余的高位部分直接截断，低位直接赋值。<br>当短字长到长字长的转换时，如果原数字是无符号整数，则进行零扩展，扩展后的高位部分用0填充。否则进行符号扩展，扩展后的高位部分用原数字符号位填充。</p>
+<p>当大字长变量向小字长变量强制类型转换时，系统把多余的高位部分直接截断，低位直接赋值。<br>当短字长到长字长的转换时，如果原数字是无符号整数，则进行零扩展，扩展后的高位部分用 0 填充。否则进行符号扩展，扩展后的高位部分用原数字符号位填充。</p>
 <h3 id="隐式转换"><a href="#隐式转换" class="headerlink" title="隐式转换"></a>隐式转换</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">-1</span>;</span><br><span class="line"><span class="type">unsigned</span> <span class="type">int</span> b = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span> (a &lt; b) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;a &lt; b&quot;</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;a &gt; b&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a &gt; b</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a &gt; b</span><br></pre></td></tr></table></figure>
 
 <p>signed &amp; unsigned 进行表达式运算时，会发生“隐式类型转换”，signed 类型转换为 unsigned 类型。int a 会被转换为 unsigned int &#x3D;&gt; 4294967295。</p>
-<h3 id="整形提升"><a href="#整形提升" class="headerlink" title="整形提升"></a>整形提升</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> a = <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line"><span class="type">char</span> b = <span class="string">&#x27;b&#x27;</span>;</span><br><span class="line">printf(<span class="string">&quot;%d&quot;</span>, <span class="keyword">sizeof</span>(a + b));</span><br></pre></td></tr></table></figure>
+<h3 id="整形提升"><a href="#整形提升" class="headerlink" title="整形提升"></a>整形提升</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> a = <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line"><span class="type">char</span> b = <span class="string">&#x27;b&#x27;</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, <span class="keyword">sizeof</span>(a + b));</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
 
 <p>char、signed char、unsigned char、short、unsigned short 进行表达式运算时，会被提升为 int。在16位环境下，short(16位)、int(16位)，unsigned short &gt; int，unsigned short会被转换为 unsigned int。</p>
 <h3 id="ASCII"><a href="#ASCII" class="headerlink" title="ASCII"></a>ASCII</h3><table>
@@ -639,7 +639,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/co/"># co</a>
+                        <a href="/tags/ascii/"># ascii</a>
                     
                         
                 </span>
@@ -652,8 +652,10 @@
         </section>
         <section class="post-nav">
             
+                <a class="prev" rel="prev" href="/2026/03/29/EN1/">句型</a>
             
-            <a class="next" rel="next" href="/2026/03/25/en0/">时态</a>
+            
+            <a class="next" rel="next" href="/2026/03/25/EN0/">时态</a>
             
         </section>
 
@@ -667,7 +669,7 @@
         <span>
             © suno |
             
-            26.03 - 26.03
+            26.03 - 26.04
         </span>
     </div>
 </footer>

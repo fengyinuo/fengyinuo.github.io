@@ -13,7 +13,7 @@
 
 
 
-<title>CPP2 | suno&#39;s blog</title>
+<title>数组和指针 | suno&#39;s blog</title>
 
 
 
@@ -203,7 +203,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">CPP2</h1>
+            <h1 class="post-title">数组和指针</h1>
             
                 <div class="post-meta">
                     
@@ -228,25 +228,22 @@
         </header>
 
         <div class="post-content">
-            <h3 id="字符常量"><a href="#字符常量" class="headerlink" title="字符常量"></a>字符常量</h3><p>在C语言中，字符常量（例如’a’）的类型实际上是int，它的大小通常是4字节</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> a = <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">printf(<span class="string">&quot;sizeof(a): %d，sizeof(&#x27;a&#x27;): %d，sizeof(\&quot;a\&quot;): %d&quot;</span>, <span class="keyword">sizeof</span>(a), <span class="keyword">sizeof</span>(<span class="string">&#x27;a&#x27;</span>), <span class="keyword">sizeof</span>(<span class="string">&quot;a&quot;</span>));</span><br></pre></td></tr></table></figure>
+            <p>在 C++ 语言中，指针和数组有非常紧密的联系，使用数组的时候编译器一般会把它转换成指针。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ar + <span class="number">2</span> == &amp;ar[<span class="number">2</span>] <span class="comment">// 相同的地址</span></span><br><span class="line">*(ar + <span class="number">2</span>) == ar[<span class="number">2</span>] <span class="comment">// 相同的值</span></span><br></pre></td></tr></table></figure>
+<p>以上关系表明了数组和指针的关系十分密切，可以使用指针标识数组的元素和获得元素的值。从本质上看，同一个对象有两种表示法。实际上，C 语言标准在描述数组表示法时确实借助了指针。也就是说，定义 ar[n] 的意思是 *(ar + n)。可以认为 *(ar + n)的意思是“到内存的 ar 位置，然后移动 n 个单元，检索存储在那里的值”。</p>
+<h3 id="数组名"><a href="#数组名" class="headerlink" title="数组名"></a>数组名</h3><p>在很多用到数组名字的地方，编译器都会自动地将其替换为一个指向数组首元素的指针。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>* p = nums; <span class="comment">// 等价于 p = &amp;nums[0]</span></span><br></pre></td></tr></table></figure>
+<p>nums 和 &amp;nums[0] 都表示数组首元素的内存地址，两者都是常量。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> ar[<span class="number">5</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;&amp;ar = %p\n&quot;</span>, &amp;ar);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;ar = %p\n&quot;</span>, ar);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;&amp;ar[0] = %p\n&quot;</span>, &amp;ar[<span class="number">0</span>]);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;&amp;ar + 1 = %p\n&quot;</span>, &amp;ar + <span class="number">1</span>);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;ar + 1 = %p\n&quot;</span>, ar + <span class="number">1</span>);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;&amp;ar[0] + 1 = %p\n&quot;</span>, &amp;ar[<span class="number">0</span>] + <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sizeof(a): 1，sizeof(&#x27;a&#x27;): 4，sizeof(&quot;a&quot;): 2</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&amp;ar = <span class="number">00</span>DDFD18</span><br><span class="line">ar = <span class="number">00</span>DDFD18</span><br><span class="line">&amp;arr[<span class="number">0</span>] = <span class="number">00</span>DDFD18</span><br><span class="line">&amp;arr + <span class="number">1</span> = <span class="number">00</span>DDFD2C</span><br><span class="line">arr + <span class="number">1</span> = <span class="number">00</span>DDFD1C</span><br><span class="line">&amp;arr[<span class="number">0</span>] + <span class="number">1</span> = <span class="number">00</span>DDFD1C</span><br></pre></td></tr></table></figure>
 
-<h5 id="sizeof-“a”-：在-C-语言中，字符串常量被表示为一个以空字符-0-结尾的字符数组。”a”-是一个包含两个字符的数组：-‘a’-‘-0’-。"><a href="#sizeof-“a”-：在-C-语言中，字符串常量被表示为一个以空字符-0-结尾的字符数组。”a”-是一个包含两个字符的数组：-‘a’-‘-0’-。" class="headerlink" title="sizeof(“a”)：在 C 语言中，字符串常量被表示为一个以空字符 \0 结尾的字符数组。”a” 是一个包含两个字符的数组：{‘a’, ‘\0’}。"></a>sizeof(“a”)：在 C 语言中，字符串常量被表示为一个以空字符 \0 结尾的字符数组。”a” 是一个包含两个字符的数组：{‘a’, ‘\0’}。</h5><h3 id="字符串常量"><a href="#字符串常量" class="headerlink" title="字符串常量"></a>字符串常量</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span>* str = <span class="string">&quot;hello&quot;</span>; <span class="comment">// 指针指向只读字符串，不可修改，=&gt;const char* str = &quot;hello&quot;;</span></span><br><span class="line">str[<span class="number">0</span>] = <span class="string">&#x27;H&#x27;</span>; <span class="comment">// error：试图修改只读字符串内容</span></span><br></pre></td></tr></table></figure>
+<p>存在两个意外：<br><strong>sizeof(数组名)：数组名表示整个数组，计算整个数组的大小，单位是字节的</strong><br><strong>&amp;数组名，数组名表示整个数组，取出的是整个数组的地址</strong><br>除此之外，遇到的所有数组名都是首元素地址.</p>
+<h3 id="数组形参"><a href="#数组形参" class="headerlink" title="数组形参"></a>数组形参</h3><p>因为数组名是该数组首元素的地址，作为实际参数的数组名要求形式参数是一个与之匹配的指针。只有在这种情况下，C 才会把 int ar[] 和 int* ar 解释成一样。也就是说， ar 是指向 int 的指针。由于函数原型可以省略参数名，所以下面4种原型都是等价的：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">sum</span><span class="params">(<span class="type">int</span>* ar, <span class="type">int</span> n)</span></span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">sum</span><span class="params">(<span class="type">int</span> *, <span class="type">int</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">sum</span><span class="params">(<span class="type">int</span> ar[], <span class="type">int</span> n)</span></span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">sum</span><span class="params">(<span class="type">int</span> [], <span class="type">int</span>)</span></span>;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> arr[] = <span class="string">&quot;hello&quot;</span>; <span class="comment">// 创建字符数组，可修改</span></span><br><span class="line">arr[<span class="number">0</span>] = <span class="string">&#x27;H&#x27;</span>; <span class="comment">// 合法</span></span><br></pre></td></tr></table></figure>
+<p>ar[i] 和 *(ar + i) 这两个表达式都是等价的。无论 ar 是数组名还是指针变量，这两个表达式都没有问题。但是，<strong>只有当 ar 是指针变量时，才能使用 ar++ 这样的表达式</strong>。</p>
 
-<p>char arr[] &#x3D; “hello”; 的工作原理：<br>在这种情况下，字符串 “hello” 的内容被复制到数组 arr 中。<br>数组 arr 是一个独立的字符数组，它存储了字符串的内容，而不是直接指向字符串常量的地址。<br>编译器会分配一块内存给数组 arr，并将 “hello” 的字符内容逐个复制到数组中。<br>布局：arr: {‘h’, ‘e’, ‘l’, ‘l’, ‘o’, ‘\0’}</p>
-<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>字符串的结束标志是一个’\0’的转义字符。</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> arr1[] = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line"><span class="type">char</span> arr2[] = &#123; <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;\0&#x27;</span>&#125;; <span class="comment">//arr2实际存储内容: &#123;&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;, &#x27;\0&#x27;&#125;</span></span><br><span class="line"><span class="type">char</span> arr3[<span class="number">5</span>] = &#123;<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>&#125;;</span><br><span class="line"><span class="type">char</span> arr4[] = &#123;<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>&#125;; <span class="comment">//arr4实际存储内容: &#123;&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="字符串常量（”abc”）会在数组初始化时包括一个额外的终止符-‘-0’。当字符数组进行部分初始化时，未显式初始化的元素会被自动初始化为’-0’，实际char-arr3-5-‘a’-‘b’-‘c’-‘-0’-‘-0’-。"><a href="#字符串常量（”abc”）会在数组初始化时包括一个额外的终止符-‘-0’。当字符数组进行部分初始化时，未显式初始化的元素会被自动初始化为’-0’，实际char-arr3-5-‘a’-‘b’-‘c’-‘-0’-‘-0’-。" class="headerlink" title="字符串常量（”abc”）会在数组初始化时包括一个额外的终止符 ‘\0’。当字符数组进行部分初始化时，未显式初始化的元素会被自动初始化为’\0’，实际char arr3[5] &#x3D; {‘a’, ‘b’, ‘c’, ‘\0’, ‘\0’}。"></a>字符串常量（”abc”）会在数组初始化时包括一个额外的终止符 ‘\0’。当字符数组进行部分初始化时，未显式初始化的元素会被自动初始化为’\0’，实际char arr3[5] &#x3D; {‘a’, ‘b’, ‘c’, ‘\0’, ‘\0’}。</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">printf(&quot;%s&quot;, arr1) : abc</span><br><span class="line">printf(&quot;%s&quot;, arr2) : abc</span><br><span class="line">printf(&quot;%s&quot;, arr3) : abc</span><br><span class="line">printf(&quot;%s&quot;, arr4) : abc烫烫烫烫蘟bc</span><br><span class="line">strlen(arr1) : 3</span><br><span class="line">strlen(arr2) : 3</span><br><span class="line">strlen(arr3) : 3</span><br><span class="line">strlen(arr4) : 15(随机值)</span><br><span class="line">sizeof arr1 : 4</span><br><span class="line">sizeof arr2 : 4</span><br><span class="line">sizeof arr3 : 5</span><br><span class="line">sizeof arr4 : 3</span><br></pre></td></tr></table></figure>
-
-<h3 id="strlen函数-string-length"><a href="#strlen函数-string-length" class="headerlink" title="strlen函数(string length)"></a>strlen函数(string length)</h3><p>从字符串的起始地址开始，逐个检查字符，直到遇到第一个空字符（’\0’）为止，返回值为已计数的字符数。</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt; /*提供 stelen 函数原型*/</span></span></span><br><span class="line"></span><br><span class="line">strlen(<span class="string">&quot;hello&quot;</span>) : <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="type">char</span> str[] = <span class="string">&quot;world&quot;</span>;</span><br><span class="line">strlen(str) : <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="type">char</span> arr[] = &#123;<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;\0&#x27;</span>, <span class="string">&#x27;b&#x27;</span>&#125;;</span><br><span class="line">strlen(arr) : <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="模拟实现strlen"><a href="#模拟实现strlen" class="headerlink" title="模拟实现strlen"></a>模拟实现strlen</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> my_strlen(<span class="type">char</span>* str)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span>* start = str;</span><br><span class="line">    <span class="keyword">while</span>(*str != <span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        str++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> str - start;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> len = my_strlen(<span class="string">&quot;abc&quot;</span>);</span><br><span class="line">    printf(<span class="string">&quot;%d&quot;</span>, len);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         </div>
 
         
@@ -256,7 +253,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/cpp/"># cpp</a>
+                        <a href="/tags/c/"># c++</a>
                     
                         
                 </span>
@@ -269,10 +266,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2026/03/25/CPP3/">CPP3</a>
+                <a class="prev" rel="prev" href="/2026/03/25/CPP3/">待整理</a>
             
             
-            <a class="next" rel="next" href="/2026/03/25/CPP1/">待整理</a>
+            <a class="next" rel="next" href="/2026/03/25/CPP1/">String</a>
             
         </section>
 
@@ -286,7 +283,7 @@
         <span>
             © suno |
             
-            26.03 - 26.03
+            26.03 - 26.04
         </span>
     </div>
 </footer>

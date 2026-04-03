@@ -229,11 +229,11 @@
 
         <div class="post-content">
             <h3 id="sizeof运算符"><a href="#sizeof运算符" class="headerlink" title="sizeof运算符"></a>sizeof运算符</h3><p>sizeof 运算符返回一条表达式（expr）或一个类型名字（type）所占的字节数。其所得的值是一个 size_t 类型的常量表达式。在 sizeof expr 中，sizeof 返回的是表达式结果类型的大小。与众不同的一点是，sizeof 并不实际计算其运算值对象的值。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sizeof(char): 1</span><br><span class="line">sizeof(int): 4</span><br><span class="line">sizeof(short): 2</span><br><span class="line">sizeof(long): 4</span><br><span class="line">sizeof(long long): 8</span><br><span class="line">sizeof(float): 4</span><br><span class="line">sizeof(double): 8</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sizeof</span>(<span class="type">char</span>): <span class="number">1</span></span><br><span class="line"><span class="built_in">sizeof</span>(<span class="type">int</span>): <span class="number">4</span></span><br><span class="line"><span class="built_in">sizeof</span>(<span class="type">short</span>): <span class="number">2</span></span><br><span class="line"><span class="built_in">sizeof</span>(<span class="type">long</span>): <span class="number">4</span></span><br><span class="line"><span class="built_in">sizeof</span>(<span class="type">long</span> <span class="type">long</span>): <span class="number">8</span></span><br><span class="line"><span class="built_in">sizeof</span>(<span class="type">float</span>): <span class="number">4</span></span><br><span class="line"><span class="built_in">sizeof</span>(<span class="type">double</span>): <span class="number">8</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> b = <span class="number">2</span>;</span><br><span class="line"><span class="type">short</span> c = <span class="number">6</span>;</span><br><span class="line"><span class="type">int</span> s = <span class="keyword">sizeof</span>(c = a + b);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;s = %d\n c = %d&quot;</span>, s, c);</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> b = <span class="number">2</span>;</span><br><span class="line"><span class="type">short</span> c = <span class="number">6</span>;</span><br><span class="line"><span class="type">int</span> s = <span class="built_in">sizeof</span>(c = a + b);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;s = %d\n c = %d&quot;</span>, s, c);</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = 2</span><br><span class="line">c = 6</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="number">2</span></span><br><span class="line">c = <span class="number">6</span></span><br></pre></td></tr></table></figure>
 <p>sizeof(c &#x3D; a + b) 中 c &#x3D; a + b 不会被执行，sizeof 只关心 c 的类型，sizeof(c &#x3D; a + b) &#x3D;&gt; sizeof(short)。</p>
 <h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><table>
 <thead>
@@ -424,7 +424,9 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/cpp/"># cpp</a>
+                        <a href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/"># 运算符</a>
+                    
+                        <a href="/tags/c/"># c++</a>
                     
                         
                 </span>
@@ -437,7 +439,7 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2026/03/25/CPP1/">待整理</a>
+                <a class="prev" rel="prev" href="/2026/03/25/CPP1/">String</a>
             
             
         </section>
@@ -452,7 +454,7 @@
         <span>
             © suno |
             
-            26.03 - 26.03
+            26.03 - 26.04
         </span>
     </div>
 </footer>

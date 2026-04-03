@@ -13,7 +13,7 @@
 
 
 
-<title>CPP5 | suno&#39;s blog</title>
+<title>句型 | suno&#39;s blog</title>
 
 
 
@@ -203,7 +203,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">CPP5</h1>
+            <h1 class="post-title">句型</h1>
             
                 <div class="post-meta">
                     
@@ -212,14 +212,14 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">March 25, 2026&nbsp;&nbsp;17:17:23</a>
+                        Date: <a href="#">March 29, 2026&nbsp;&nbsp;15:19:48</a>
                         </span>
                     
                     
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/C/">C++</a>
+                                <a href="/categories/EN/">EN</a>
                             
                         </span>
                     
@@ -228,16 +228,88 @@
         </header>
 
         <div class="post-content">
-            <p>在 C 语言中，指针加 1 是增加其所指类型的大小。</p>
-<p>对于数组名，在表达式中通常会退化为指向首元素的指针，因此 arr + 1 表示指向下一个元素，而不是跳过整个数组。</p>
-<p>当使用数组指针（void (*p)[n] &#x3D; &amp;arr）时，加 1 表示跳过整个数组的大小。</p>
-<p>这也是为什么指针必须声明类型——因为只有知道所指对象的类型，编译器才能正确计算地址偏移。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&amp;arr[2] == arr+2 //相同的地址</span><br><span class="line">arr[2] == *(arr+2) //相同的值</span><br></pre></td></tr></table></figure>
-<p>以上关系表明了数组和指针的关系十分密切，可以使用指针标识数组的元素和获得元素的值。从本质上看，同一个对象有两种表示法。<br>实际上，C语言标准在描述数组表示法时确实借助了指针。也就是说，定义arr[n]的意思是*(arr+n)。<br>可以认为*(arr+n)的意思是“到内存的arr位置，然后移动n个单元，检索存储在那里的值”。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int sun(int *arr, int n);</span><br><span class="line">int sun(int *, int);</span><br><span class="line">int sun(int arr[], int n);</span><br><span class="line">int sun(int [], int);</span><br></pre></td></tr></table></figure>
-<p>由于函数原型可以省略参数名，所以以上4种原型都是等价的。</p>
-<h3 id="地址编码"><a href="#地址编码" class="headerlink" title="地址编码"></a>地址编码</h3><p>32位操作系统的环境下内存地址是由8个十六进制数（32位）编址，可以表示的地址范围是从 0x00000000 到 0xFFFFFFFF，一共 2^32（16 * 16 * 16 * 16 * 16 * 16 * 16 * 16）个地址，每个地址对应 1 字节，因此 CPU 最多能寻址 4GB（2^32Byte） 内存。</p>
-<p>当取地址 int a 时拿到的是第一个字节的地址。</p>
+            <table>
+<thead>
+<tr>
+<th align="center">句型</th>
+<th align="center">主语</th>
+<th align="center">谓语动词</th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">主语+系动词<br>+表语（主语补足语）</td>
+<td align="center">Chatting on the Internet</td>
+<td align="center">is</td>
+<td align="center">interesting<br>（表语）</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">主语+谓语</td>
+<td align="center">Internet dating</td>
+<td align="center">hurts</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">主语+谓语<br>+宾语</td>
+<td align="center">I</td>
+<td align="center">like</td>
+<td align="center">chatting online<br>（宾语）</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">主语+谓语<br>+间接宾语+直接宾语</td>
+<td align="center">Chatting on the Tnternet</td>
+<td align="center">brings</td>
+<td align="center">me<br>（间接宾语）</td>
+<td align="center">a lot of fun<br>（直接宾语）</td>
+</tr>
+<tr>
+<td align="center">主语+谓语<br>+宾语+宾语补足语</td>
+<td align="center">We</td>
+<td align="center">can call</td>
+<td align="center">Internet addicts<br>（宾语）</td>
+<td align="center">webaholics<br>（宾语补足语）</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">句型</th>
+<th align="center">主语</th>
+<th align="center">谓语动词</th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">主语+谓语<br>（+状语）</td>
+<td align="center">He</td>
+<td align="center">died</td>
+<td align="center">（last night）<br>（状语）</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">主语+谓语<br>+宾语（+状语）</td>
+<td align="center">I</td>
+<td align="center">like</td>
+<td align="center">chatting<br>（宾语）</td>
+<td align="center">（on the Internet）<br>（状语）</td>
+</tr>
+</tbody></table>
+<p>He looks happy<br>主系表：系动词；表语描述主语</p>
+<p>He shouted loudly<br>主谓状：不及物动词；状语修饰谓语</p>
+<p>He loves English<br>主谓宾：及物动词；宾语承受主语动作</p>
+<p>主+谓+直宾+间宾<br>主+谓+宾语+宾补<br>主+谓+宾语+状语</p>
+<h3 id="系动词"><a href="#系动词" class="headerlink" title="系动词"></a>系动词</h3><blockquote>
+<p>look 看起来是　sound 听起来是　smell 闻起来是　taste 尝起来是　feel 感觉是<br>seem 似乎是　appear 似乎是　become 变成为　turn 转变为</p>
+</blockquote>
+<p>实义动词（特殊的系动词）、be系动词、情态动词、助动词</p>
+<h3 id="情态动词"><a href="#情态动词" class="headerlink" title="情态动词"></a>情态动词</h3><blockquote>
+<p>can&#x2F;could　may&#x2F;might　shall&#x2F;should　will&#x2F;would<br>have to　ought to　used to　must　need　dare</p>
+</blockquote>
 
         </div>
 
@@ -248,7 +320,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/cpp/"># cpp</a>
+                        <a href="/tags/en/"># en</a>
                     
                         
                 </span>
@@ -261,10 +333,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2026/03/25/CPP6/">CPP6</a>
+                <a class="prev" rel="prev" href="/2026/04/01/Math0/">数学基础</a>
             
             
-            <a class="next" rel="next" href="/2026/03/25/CPP4/">CPP4</a>
+            <a class="next" rel="next" href="/2026/03/25/CO0/">进制存储</a>
             
         </section>
 
@@ -278,7 +350,7 @@
         <span>
             © suno |
             
-            26.03 - 26.03
+            26.03 - 26.04
         </span>
     </div>
 </footer>

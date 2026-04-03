@@ -13,7 +13,7 @@
 
 
 
-<title>待整理 | suno&#39;s blog</title>
+<title>String | suno&#39;s blog</title>
 
 
 
@@ -134,11 +134,76 @@
                 <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">待整理</h1>
+            <h1 class="post-title">String</h1>
             
                 <div class="post-meta">
                     
@@ -163,9 +228,11 @@
         </header>
 
         <div class="post-content">
-            <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> count1()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="type">int</span> n = <span class="number">0</span>;</span><br><span class="line">    n++;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> n; <span class="comment">//此处实际为：int temp = n; 将n的值给到临时变量temp后，将temp作为返回值。</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span>&amp; count2()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="type">int</span> n = <span class="number">0</span>;</span><br><span class="line">    n++;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> n; <span class="comment">//此处实际为：int&amp; temp = n; 取n的别名temp后，将temp作为返回值。</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span>&amp; r1 = count1(); <span class="comment">//error：返回值为n的临时拷贝为只读变量。</span></span><br><span class="line">    <span class="type">int</span>&amp; r2 = count2();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <p>由单括号括起来的一个字符称为 char 型字面值，双括号括起来的零个或多个字符则构成字符串型字面值。</p>
+<p>字面值’A’表示的就是单独的字符 A，而字符串”A”则代表了一个字符数组，该数组包含两个字符：一个是字母 A、另一个是空字符（’\0’），其ASCII码值是 0。</p>
+<h3 id="C-风格字符串"><a href="#C-风格字符串" class="headerlink" title="C 风格字符串"></a>C 风格字符串</h3><p>C 风格字符串不是一种类型，而是为了表达和使用字符串而形成的一种约定俗成的写法。按此习惯书写的字符串存放在字符数组中并以空字符结束。以空字符结束的意思是在字符串最后一个字符后面跟着一个空字符。</p>
+<h3 id="字符串字面值"><a href="#字符串字面值" class="headerlink" title="字符串字面值"></a>字符串字面值</h3><p>字符串字面值是一种通用结构的实例，这种结构即是 C++ 由 C 继承而来的 C 风格字符串。<br>字符串字面值的类型实际上是由常量字符构成的数组，编译器在每个字符串的结尾处添加一个一个空字符，因此字符串字面值的实际长度要比它的内容多 1。</p>
 
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> student</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line"></span><br><span class="line">	student()&#123;&#125; <span class="comment">//默认构造函数：编译器自动生成</span></span><br><span class="line"></span><br><span class="line">	student() &#123;</span><br><span class="line">		_age = <span class="number">1</span>;</span><br><span class="line">		_<span class="type">id</span> = <span class="number">1</span>;</span><br><span class="line">	&#125; <span class="comment">//默认构造函数：无参</span></span><br><span class="line"></span><br><span class="line">	student(<span class="type">int</span> age = <span class="number">1</span>, <span class="type">int</span> <span class="type">id</span> = <span class="number">1</span>) &#123;</span><br><span class="line">		_age = age;</span><br><span class="line">		_<span class="type">id</span> = <span class="type">id</span>;</span><br><span class="line">	&#125; <span class="comment">//默认构造函数：全缺省</span></span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">	<span class="type">int</span> _age;</span><br><span class="line">	<span class="type">int</span> _<span class="type">id</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> main() &#123;</span><br><span class="line">	student suno;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         </div>
 
         
@@ -175,7 +242,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/cpp/"># cpp</a>
+                        <a href="/tags/c/"># c++</a>
                     
                         
                 </span>
@@ -188,7 +255,7 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2026/03/25/CPP2/">CPP2</a>
+                <a class="prev" rel="prev" href="/2026/03/25/CPP2/">数组和指针</a>
             
             
             <a class="next" rel="next" href="/2026/03/25/CPP0/">运算符</a>
@@ -205,7 +272,7 @@
         <span>
             © suno |
             
-            26.03 - 26.03
+            26.03 - 26.04
         </span>
     </div>
 </footer>
