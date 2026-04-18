@@ -13,7 +13,7 @@
 
 
 
-<title>数学基础 | suno&#39;s blog</title>
+<title>高数 | suno&#39;s blog</title>
 
 
 
@@ -173,11 +173,76 @@
                 <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">数学基础</h1>
+            <h1 class="post-title">高数</h1>
             
                 <div class="post-meta">
                     
@@ -202,9 +267,77 @@
         </header>
 
         <div class="post-content">
-            <p>自然数集（N）：0, 1, 2, 3, 4</p>
+            <h3 id="数集"><a href="#数集" class="headerlink" title="数集"></a>数集</h3><p>自然数集（N）：0, 1, 2, 3, 4</p>
 <p>整数集（Z）：-2, -1, 0, 1, 2</p>
-<p>有理数集（Q）：</p>
+<p>有理数集（Q）：0.5, 0.333…, $\frac pq$; 整数、有限小数、无限循环小数（可以表示为两个整数之比的实数）</p>
+<p>无理数集：π, e, $ \sqrt{2} $, $ \sqrt[3]{2} $; 无限不循环小数（不能写成两个整数之比的实数）</p>
+<p>实数集（R）：有理数和无理数的总称</p>
+<h3 id="不等式"><a href="#不等式" class="headerlink" title="不等式"></a>不等式</h3><p>$a + b \ge 2\sqrt{ab}$ &nbsp;&nbsp;&nbsp;&nbsp; { a, b | a &gt; 0, b &gt; 0 }<br>$ab \leq (\frac {a+b}2)^2$ &nbsp;&nbsp;&nbsp;&nbsp; { a, b | a $\in$ R, b $\in$ R }<br>对于分式不等式：$\frac {2-x}{x+3}$ &gt; 0，两边同时乘以分母的平方 $(x + 3)^2$：(2 - x)(x + 3) &gt; 0<br>绝对值的几何意义：在数轴上，一个数a所对应的点与原点的距离称为该数的绝对值，记作：|a|；|a - b|表示数轴上 a 、b 两个数字之间的距离。</p>
+<h3 id="指数函数"><a href="#指数函数" class="headerlink" title="指数函数"></a>指数函数</h3><p>$a^x &#x3D; N$ ( a &gt; 0, $a \neq 1$ ) &nbsp;&nbsp;&nbsp;&nbsp; a（底数） x（指数） N（幂）</p>
+<ul>
+<li>当a &lt; 0，取a &#x3D; -2、x &#x3D; $\frac 12$，y &#x3D; $(-2)^{\frac 12}$ &#x3D; $ \sqrt{-2} $</li>
+<li>当a &#x3D; 0 <ul>
+<li>当x &lt; 0，取x &#x3D; -1，y &#x3D; $0^{-1}$ &#x3D; $\frac 10$</li>
+<li>当x &#x3D; 0，y &#x3D; $0^0$</li>
+</ul>
+</li>
+<li>当a &#x3D; 1，y &#x3D; $1^x$ &#x3D; 1</li>
+</ul>
+<p>{ x | $x \in R$ } &nbsp;&nbsp;&nbsp;&nbsp; ( 0, $+\infty$ )</p>
+<p>$a^m · a^n$ &#x3D; $a^{m+n}$ &nbsp;&nbsp;&nbsp;&nbsp; $a^m &#x2F; a^n$ &#x3D; $a^{m-n}$</p>
+<h3 id="对数函数"><a href="#对数函数" class="headerlink" title="对数函数"></a>对数函数</h3><p>$log_aN &#x3D; b$ ( a &gt; 0, $a \neq 0$ ) &nbsp;&nbsp;&nbsp;&nbsp; a（底数） N（真数） b（对数）</p>
+<p>{ x | x &gt; 0 } ( $-\infty$, $+\infty$ )</p>
+<p>$log_ax + log_ay$ &#x3D; $log_a(x+y)$ &nbsp;&nbsp;&nbsp;&nbsp; $log_ax - log_ay$ &#x3D; $log_a(x&#x2F;y)$</p>
+<h3 id="幂函数"><a href="#幂函数" class="headerlink" title="幂函数"></a>幂函数</h3><p>y &#x3D; $x^a$</p>
+<ul>
+<li>y &#x3D; $x^2$ &nbsp;&nbsp;&nbsp;&nbsp; { x | $x \in R$ } &nbsp;&nbsp;&nbsp;&nbsp; [ 0, $+\infty$ )</li>
+<li>y &#x3D; $x^{\frac 12}$ &nbsp;&nbsp;&nbsp;&nbsp; { x | $x \ge 0$ } &nbsp;&nbsp;&nbsp;&nbsp; [ 0, $+\infty$ )</li>
+</ul>
+<h3 id="三角函数"><a href="#三角函数" class="headerlink" title="三角函数"></a>三角函数</h3><blockquote class="pullquote left"><svg width="260" height="160" viewBox="0 0 260 160">
+  <polygon points="30,140 230,140 230,40" fill="none" stroke="#333" stroke-width="2"/>
+  <rect x="220" y="130" width="10" height="10" fill="none" stroke="#333" stroke-width="1.5"/>
+  <text x="55" y="138" font-size="18" fill="#000">θ</text>
+  <text x="130" y="158" font-size="18" fill="#000" text-anchor="middle">b</text>
+  <text x="240" y="95" font-size="18" fill="#000" text-anchor="middle">a</text>
+  <text x="130" y="78" font-size="18" fill="#000" text-anchor="middle">c</text>
+</svg></blockquote>
+<p>$a^2$ + $b^2$ &#x3D; $c^2$<br>$sin \theta$ &#x3D; ${\frac ac}$<br>$cos \theta$ &#x3D; ${\frac bc}$<br>$tan \theta$ &#x3D; ${\frac ab}$<br>$cot \theta$ &#x3D; ${\frac ba}$<br>$\angle 30^\circ : 1:\sqrt{3}:2$<br>$\angle 45^\circ : {\frac 1{\sqrt{2}}}:{\frac 1{\sqrt{2}}}:1$</p>
+<div style="clear:both;"></div>
+
+<svg width="200" height="200" viewBox="-60 -60 120 120">
+  <!-- 1. XY坐标轴（无箭头，线条1px） -->
+  <line x1="-60" y1="0" x2="60" y2="0" stroke="#000" stroke-width="1"/>
+  <line x1="0" y1="-60" x2="0" y2="60" stroke="#000" stroke-width="1"/>
+
+  <circle cx="0" cy="0" r="40" fill="none" stroke="#000" stroke-width="1"/>
+
+  <line x1="0" y1="0" x2="32" y2="-25" stroke="#e60012" stroke-width="1.8"/>
+
+  <circle cx="32" cy="-25" r="1.5" fill="#000"/>
+  <text x="30" y="-35" font-size="10" fill="#000">(x₀,y₀)</text>
+
+  <line x1="0" y1="0" x2="32" y2="0" stroke="#009944" stroke-width="1.8"/>
+  <line x1="32" y1="0" x2="32" y2="-25" stroke="#0066cc" stroke-width="1.8"/>
+</svg>
+
+<h3 id="二次函数"><a href="#二次函数" class="headerlink" title="二次函数"></a>二次函数</h3><p>y &#x3D; $ax^2$ + bx + c</p>
+<p>$ax^2$ + bx + c &#x3D; 0</p>
+<ul>
+<li>当Δ &#x3D; $b^2$ - 4ac $\ge$ 0时, x &#x3D; $\frac {-b \pm \sqrt{4ac - b^2}}{2a}$<ul>
+<li>$x_1 + x_2$ &#x3D; $- \frac ba$</li>
+<li>$x_1 * x_2$ &#x3D; $\frac ca$</li>
+</ul>
+</li>
+<li>当Δ &#x3D; $b^2$ - 4ac &lt; 0时, 无实数根</li>
+</ul>
+<p>对称轴：$x &#x3D; - \frac b{2a}$</p>
+<p>$a^2$ - $b^2$ &#x3D; (a + b)(a - b)<br>$(a \pm b)^2$ &#x3D; $a^2$ $\pm$ 2ab + $b^2$</p>
+<p>$ax^2$ + bx + c &#x3D; ($a_1x$ + $c_1$)($a_2x$ + $c_2$)</p>
+<ul>
+<li>a &#x3D; $a_1$ * $a_2$</li>
+<li>c &#x3D; $c_1$ * $c_2$</li>
+<li>b &#x3D; $a_1c_2$ + $a_2c_1$</li>
+</ul>
 
         </div>
 
@@ -227,6 +360,8 @@
             </div>
         </section>
         <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2026/04/18/Math1/">高数</a>
             
             
             <a class="next" rel="next" href="/2026/03/29/EN1/">句型</a>
