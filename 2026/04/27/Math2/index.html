@@ -13,7 +13,7 @@
 
 
 
-<title>句型 | suno&#39;s blog</title>
+<title>概率 | suno&#39;s blog</title>
 
 
 
@@ -40,6 +40,45 @@
 
     
     
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
         
     
 
@@ -203,7 +242,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">句型</h1>
+            <h1 class="post-title">概率</h1>
             
                 <div class="post-meta">
                     
@@ -212,14 +251,14 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">March 29, 2026&nbsp;&nbsp;15:19:48</a>
+                        Date: <a href="#">April 27, 2026&nbsp;&nbsp;12:06:05</a>
                         </span>
                     
                     
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/EN/">EN</a>
+                                <a href="/categories/Math/">Math</a>
                             
                         </span>
                     
@@ -228,88 +267,33 @@
         </header>
 
         <div class="post-content">
-            <table>
-<thead>
-<tr>
-<th align="center">句型</th>
-<th align="center">主语</th>
-<th align="center">谓语动词</th>
-<th align="center"></th>
-<th align="center"></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">主语+系动词<br>+表语（主语补足语）</td>
-<td align="center">Chatting on the Internet</td>
-<td align="center">is</td>
-<td align="center">interesting<br>（表语）</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">主语+谓语</td>
-<td align="center">Internet dating</td>
-<td align="center">hurts</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">主语+谓语<br>+宾语</td>
-<td align="center">I</td>
-<td align="center">like</td>
-<td align="center">chatting online<br>（宾语）</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">主语+谓语<br>+间接宾语+直接宾语</td>
-<td align="center">Chatting on the Tnternet</td>
-<td align="center">brings</td>
-<td align="center">me<br>（间接宾语）</td>
-<td align="center">a lot of fun<br>（直接宾语）</td>
-</tr>
-<tr>
-<td align="center">主语+谓语<br>+宾语+宾语补足语</td>
-<td align="center">We</td>
-<td align="center">can call</td>
-<td align="center">Internet addicts<br>（宾语）</td>
-<td align="center">webaholics<br>（宾语补足语）</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th align="center">句型</th>
-<th align="center">主语</th>
-<th align="center">谓语动词</th>
-<th align="center"></th>
-<th align="center"></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">主语+谓语<br>（+状语）</td>
-<td align="center">He</td>
-<td align="center">died</td>
-<td align="center">（last night）<br>（状语）</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">主语+谓语<br>+宾语（+状语）</td>
-<td align="center">I</td>
-<td align="center">like</td>
-<td align="center">chatting<br>（宾语）</td>
-<td align="center">（on the Internet）<br>（状语）</td>
-</tr>
-</tbody></table>
-<p>He looks happy<br>主系表：系动词；表语描述主语</p>
-<p>He shouted loudly<br>主谓状：不及物动词；状语修饰谓语</p>
-<p>He loves English<br>主谓宾：及物动词；宾语承受主语动作</p>
-<p>主+谓+直宾+间宾<br>主+谓+宾语+宾补<br>主+谓+宾语+状语</p>
-<h3 id="系动词"><a href="#系动词" class="headerlink" title="系动词"></a>系动词</h3><blockquote>
-<p>look 看起来是　sound 听起来是　smell 闻起来是　taste 尝起来是　feel 感觉是<br>seem 似乎是　appear 似乎是　become 变成为　turn 转变为</p>
-</blockquote>
-<p>实义动词（特殊的系动词）、be系动词、情态动词、助动词</p>
-<h3 id="情态动词"><a href="#情态动词" class="headerlink" title="情态动词"></a>情态动词</h3><blockquote>
-<p>can&#x2F;could　may&#x2F;might　shall&#x2F;should　will&#x2F;would<br>have to　ought to　used to　must　need　dare</p>
-</blockquote>
+            <h3 id="阶乘"><a href="#阶乘" class="headerlink" title="阶乘"></a>阶乘</h3><p>n! &#x3D; n(n-1)(n-2)···3 * 2 * 1 (0! &#x3D; 1)</p>
+<h3 id="排列"><a href="#排列" class="headerlink" title="排列"></a>排列</h3><p>$A^m_n$ &#x3D; n(n-1)(n-2)···(n-m+1) &#x3D; $\frac {n!}{(n-m)!}$ ($A^0_n$ &#x3D; 1)</p>
+<h3 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h3><p>$C^m_n$ &#x3D; $\frac {A^m_n}{A^m_m}$ &#x3D; $\frac {n!}{m!(n-m)!}$</p>
+<p>$C^m_n$ &#x3D; $C^{n-m}_n$ ($C^0_n$ &#x3D; 1)</p>
+<h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><p>$\emptyset$ 为任意集合的子集 &nbsp;&nbsp;&nbsp;&nbsp; $\emptyset$ 为任意非空集合的真子集</p>
+<p>$\emptyset \in$ { $\emptyset$ } &nbsp;&nbsp;&nbsp;&nbsp; $\emptyset \subseteq$ { $\emptyset$ } &nbsp;&nbsp;&nbsp;&nbsp; $\emptyset \subsetneqq$ { $\emptyset$ }</p>
+<p>A&#x3D;{$\emptyset$, 1, 2} &nbsp;&nbsp;&nbsp;&nbsp; $\emptyset \in A，\emptyset \subseteq A，\emptyset  \subsetneqq A$<br>A&#x3D;{ {$\emptyset$}, 1, 2} &nbsp;&nbsp;&nbsp;&nbsp; $\emptyset \notin A，${$\emptyset$} $\in A，\emptyset \subseteq A，\emptyset  \subsetneqq A$</p>
+<p>A&#x3D;{1, 2}，B&#x3D;{1, 2}，C&#x3D;{1, 2, 3} &nbsp;&nbsp;&nbsp;&nbsp; $A \subseteq B，B \subseteq A，A(&#x2F;B) \subseteq C，A(&#x2F;B) \subsetneqq C$</p>
+<p>A&#x3D;{1, 2, 3, …, n} &nbsp;&nbsp;&nbsp;&nbsp; A 的子集个数为 $2^n$（包含空集）</p>
+<p>$A \cup B &#x3D; A + B，A \cap B &#x3D; AB，\Omega - A &#x3D; \overline{A}$</p>
+<h3 id="运算法则"><a href="#运算法则" class="headerlink" title="运算法则"></a>运算法则</h3><p>交换律：$A \cup B &#x3D; B \cup A，A \cap B &#x3D; B \cap A$</p>
+<p>结合律：$(A \cup B) \cup C &#x3D; A \cup (B \cup C)，(A \cap B) \cap C &#x3D; A \cap (B \cap C)$</p>
+<p>分配律：$(A \cup B) \cap C &#x3D; (A \cap C) \cup (B \cap C)，(A \cap B) \cup C &#x3D; (A \cup C)(B \cup C)$</p>
+<p>德摩根律：$\overline{A \cup B} &#x3D; \overline{A} \cap \overline{B}，\overline{A \cap B} &#x3D; \overline{A} \cup \overline{B}$</p>
+<p>差化积：$A - B &#x3D; A \cap \overline{B}$</p>
+<p>吸收律：$A \cup \Omega &#x3D; \Omega，A \cap \Omega &#x3D; A，A \cup \varnothing &#x3D; A，A \cap \varnothing &#x3D; \varnothing$</p>
+<h3 id="事件表示"><a href="#事件表示" class="headerlink" title="事件表示"></a>事件表示</h3><p>A、B、C都不发生：$\overline{A}\overline{B}\overline{C}$</p>
+<p>A发生，B、C不发生：$A \overline{B} \overline{C}$</p>
+<p>A、B发生，C不发生：$AB\overline{C}$</p>
+<p>A、B、C恰好一个发生：$A\overline{B}\overline{C} \cup \overline{A}B\overline{C} \cup \overline{A}\overline{B}C$</p>
+<p>A、B、C恰好两个发生：$AB\overline{C} A\cup \overline{B}\overline{C} \cup \overline{A}BC$</p>
+<p>A、B、C至少一个发生：$A \cup B \cup C$</p>
+<p>A、B、C至少两个发生：$AB \cup BC \cup AC$</p>
+<p>A、B、C至多一个发生：$\overline{AB \cup AC \cup BC}$</p>
+<p>A、B、C至多两个发生：$\overline{ABC}$</p>
+<h3 id="概率性质"><a href="#概率性质" class="headerlink" title="概率性质"></a>概率性质</h3><p>P(B - A) &#x3D; P(B) - P(AB)</p>
+<p>P(A $\cup$ B) &#x3D; P(A) + P(B) - P(AB)</p>
 
         </div>
 
@@ -320,7 +304,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/en/"># en</a>
+                        <a href="/tags/math/"># math</a>
                     
                         
                 </span>
@@ -333,10 +317,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2026/04/01/Math0/">高数</a>
             
-            
-            <a class="next" rel="next" href="/2026/03/25/CO0/">进制存储</a>
+            <a class="next" rel="next" href="/2026/04/18/Math1/">微积分</a>
             
         </section>
 
