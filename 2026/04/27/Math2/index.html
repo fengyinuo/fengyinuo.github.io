@@ -276,8 +276,9 @@
 <p>A&#x3D;{$\emptyset$, 1, 2} &nbsp;&nbsp;&nbsp;&nbsp; $\emptyset \in A，\emptyset \subseteq A，\emptyset  \subsetneqq A$<br>A&#x3D;{ {$\emptyset$}, 1, 2} &nbsp;&nbsp;&nbsp;&nbsp; $\emptyset \notin A，${$\emptyset$} $\in A，\emptyset \subseteq A，\emptyset  \subsetneqq A$</p>
 <p>A&#x3D;{1, 2}，B&#x3D;{1, 2}，C&#x3D;{1, 2, 3} &nbsp;&nbsp;&nbsp;&nbsp; $A \subseteq B，B \subseteq A，A(&#x2F;B) \subseteq C，A(&#x2F;B) \subsetneqq C$</p>
 <p>A&#x3D;{1, 2, 3, …, n} &nbsp;&nbsp;&nbsp;&nbsp; A 的子集个数为 $2^n$（包含空集）</p>
-<p>$A \cup B &#x3D; A + B，A \cap B &#x3D; AB，\Omega - A &#x3D; \overline{A}$</p>
-<h3 id="运算法则"><a href="#运算法则" class="headerlink" title="运算法则"></a>运算法则</h3><p>交换律：$A \cup B &#x3D; B \cup A，A \cap B &#x3D; B \cap A$</p>
+<h2 id="随机事件"><a href="#随机事件" class="headerlink" title="随机事件"></a>随机事件</h2><p>我们将随机试验 $E$ 所有可能结果组成的集合称为 $E$ 的样本空间，记作 $\Omega$。$\Omega$ 的元素（即 $E$ 的每个结果）称为样本点，样本点一般用 $\omega$ 表示。一般地，称实验 $E$ 的样本空间 $\Omega$ 的子集为 $E$ 的随机事件，简称事件，常用大写字母 $A，B，C，···$ 表示，它是样本空间 $\Omega$ 的子集合。</p>
+<h3 id="运算法则"><a href="#运算法则" class="headerlink" title="运算法则"></a>运算法则</h3><p>$A \cup B &#x3D; A + B，A \cap B &#x3D; AB，\Omega - A &#x3D; \overline{A}$</p>
+<p>交换律：$A \cup B &#x3D; B \cup A，A \cap B &#x3D; B \cap A$</p>
 <p>结合律：$(A \cup B) \cup C &#x3D; A \cup (B \cup C)，(A \cap B) \cap C &#x3D; A \cap (B \cap C)$</p>
 <p>分配律：$(A \cup B) \cap C &#x3D; (A \cap C) \cup (B \cap C)，(A \cap B) \cup C &#x3D; (A \cup C)(B \cup C)$</p>
 <p>德摩根律：$\overline{A \cup B} &#x3D; \overline{A} \cap \overline{B}，\overline{A \cap B} &#x3D; \overline{A} \cup \overline{B}$</p>
@@ -292,8 +293,16 @@
 <p>A、B、C至少两个发生：$AB \cup BC \cup AC$</p>
 <p>A、B、C至多一个发生：$\overline{AB \cup AC \cup BC}$</p>
 <p>A、B、C至多两个发生：$\overline{ABC}$</p>
-<h3 id="概率性质"><a href="#概率性质" class="headerlink" title="概率性质"></a>概率性质</h3><p>P(B - A) &#x3D; P(B) - P(AB)</p>
+<h3 id="概率公式"><a href="#概率公式" class="headerlink" title="概率公式"></a>概率公式</h3><p>对任意两个事件 $A，B$ ：</p>
+<p>P(B - A) &#x3D; P(B) - P(AB)</p>
 <p>P(A $\cup$ B) &#x3D; P(A) + P(B) - P(AB)</p>
+<p>P(B | A) &#x3D; $\dfrac{P(AB)}{P(A)}$ &nbsp;&nbsp;&nbsp;&nbsp; P(AB) &#x3D; P(A)P(B | A) &#x3D; P(B)P(A | B)</p>
+<h3 id="全概率公式与贝叶斯公式"><a href="#全概率公式与贝叶斯公式" class="headerlink" title="全概率公式与贝叶斯公式"></a>全概率公式与贝叶斯公式</h3><ul>
+<li>$A_1，A_2，A_3，···，A_n$ ( P($A_i$) &gt; 0 ，$A_{i-1}A_i$ &#x3D; $\varnothing$)</li>
+<li>$A_1 \cup A_2 \cup A_3 \cup ··· \cup A_n &#x3D; \Omega$</li>
+</ul>
+<p>$P(A) &#x3D; \sum_{i&#x3D;1}^{n} P(B_i)P(A\mid B_i)$</p>
+<p>$P(B_i \mid A) &#x3D; \dfrac{P(B_iA)}{P(A)} &#x3D; \dfrac{P(B_i)P(A\mid B_i)}{\displaystyle\sum_{i&#x3D;1}^{n} P(B_i)P(A\mid B_i)}$</p>
 
         </div>
 
